@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -82,6 +82,12 @@
       }
     </script>
     <style>
+      :root {
+        scroll-padding-top: 5rem; /* Höhe des Headers */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         margin: 0;
         -webkit-font-smoothing: antialiased;
