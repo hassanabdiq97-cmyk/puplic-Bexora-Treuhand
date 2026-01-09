@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
@@ -193,7 +194,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
     },
     private: {
       base: 0, 
-      status: { single: 120, married: 190 }, 
+      status: { single: 130, married: 190 }, 
       realEstate: { none: 0, one: 100, multiple: 250 },
       submission: { digital: 0, paper: 50 },
       delivery: { digital: 0, meeting: 120 },
@@ -393,7 +394,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                       {/* Civil Status Section */}
                       <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <SelectionCard title={lang === 'DE' ? "Alleinstehend / Ledig" : "Célibataire"} price="120.-" desc={lang === 'DE' ? "Einzelperson" : "Personne seule"} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
+                          <SelectionCard title={lang === 'DE' ? "Alleinstehend / Ledig" : "Célibataire"} price="130.-" desc={lang === 'DE' ? "Einzelperson" : "Personne seule"} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
                           <SelectionCard title={lang === 'DE' ? "Verheiratet" : "Marié(e)"} price="190.-" desc={lang === 'DE' ? "Zusammen veranlagt" : "Imposition commune"} selected={privateOpts.civilStatus === 'married'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'married'}))} colorClass="amber" icon={Heart} />
                         </div>
                       </div>

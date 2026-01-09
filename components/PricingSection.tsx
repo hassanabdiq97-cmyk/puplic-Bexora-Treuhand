@@ -69,7 +69,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
          <div className="mb-8 py-6 border-y border-slate-100 dark:border-white/5">
             <p className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">{content.private.priceLabel}</p>
             <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 120.-</span>
+                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 130.-</span>
             </div>
          </div>
          
@@ -94,9 +94,6 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
 
       {/* Business Card */}
       <div className="group relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-blue-600/30 shadow-xl hover:shadow-blue-600/5 flex flex-col h-full">
-         <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-bl-2xl rounded-tr-[2.3rem]">
-            {content.business.badge}
-         </div>
          
          <div className="flex items-center gap-6 mb-8">
             <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 shadow-inner border border-blue-600/20">

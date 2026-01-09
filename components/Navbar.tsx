@@ -104,9 +104,8 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
              <div className="h-px w-full bg-slate-100 dark:bg-white/5" />
              
              {/* Mobile Preisrechner Button */}
-             <MagneticButton variant="primary" className="!w-full !py-6 !text-sm !justify-between !rounded-2xl shadow-xl shadow-blue-600/20" onClick={() => scrollTo('#pricing')}>
+             <MagneticButton variant="primary" className="!w-full !py-6 !text-sm !rounded-2xl shadow-xl shadow-blue-600/20" onClick={() => scrollTo('#pricing')}>
                 <span className="flex items-center gap-3 font-bold tracking-wider"><Calculator size={20}/> {lang === 'DE' ? 'PREISRECHNER' : 'CALCULATEUR'}</span>
-                <div className="bg-white/20 p-2 rounded-full"><ChevronRight size={16} /></div>
              </MagneticButton>
 
              <div className="flex gap-4 h-16">
