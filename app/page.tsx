@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, Suspense } from 'react';
@@ -14,6 +13,8 @@ import { TRANSLATIONS } from '../constants';
 
 export default function Home() {
   const [currentLang, setCurrentLang] = useState<'DE' | 'FR'>('DE');
+  
+  // Zustand für den Preisrechner
   const [calculatorState, setCalculatorState] = useState<{isOpen: boolean, type?: 'private' | 'business'}>({
     isOpen: false,
     type: undefined
@@ -23,6 +24,7 @@ export default function Home() {
 
   const openCalculator = (type: 'private' | 'business') => {
     setCalculatorState({ isOpen: true, type });
+    // Verhindert Scrollen im Hintergrund wenn Modal offen ist
     document.body.style.overflow = 'hidden';
   };
 
@@ -31,12 +33,22 @@ export default function Home() {
     document.body.style.overflow = 'auto';
   };
 
+  const handleRequestQuote = () => {
+    closeCalculator();
+    // Smooth scroll zum Kontaktformular
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <Navbar lang={currentLang} onToggleLang={() => setCurrentLang(prev => prev === 'DE' ? 'FR' : 'DE')} />
+      
       <Hero lang={currentLang} onOpenCalculator={openCalculator} />
+      
       <TrustBar lang={currentLang} />
+      
       <ServicesSection lang={currentLang} onOpenCalculator={openCalculator} />
+      
       <section id="pricing" className="py-32 bg-slate-50 dark:bg-slate-900/30 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -46,22 +58,22 @@ export default function Home() {
           <PricingSection onOpenCalculator={openCalculator} lang={currentLang} />
         </div>
       </section>
+      
       <section id="careers" className="py-32 bg-white dark:bg-dark-950 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <CareersSection t={t} onApplyClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} />
         </div>
       </section>
+      
       <ContactSection lang={currentLang} />
 
+      {/* Lazy Loading für schwere Komponenten wie den Rechner */}
       <Suspense fallback={null}>
         {calculatorState.isOpen && calculatorState.type && (
           <PricingCalculator 
             initialType={calculatorState.type} 
             onClose={closeCalculator} 
-            onRequestQuote={() => {
-              closeCalculator();
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }} 
+            onRequestQuote={handleRequestQuote} 
             lang={currentLang} 
           />
         )}

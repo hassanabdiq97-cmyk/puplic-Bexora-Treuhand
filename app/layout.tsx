@@ -7,19 +7,24 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Bexora | Digitale Treuhand & Unternehmensberatung Lengnau',
   description: 'Bexora Treuhand in Lengnau: Maximale Transparenz durch digitale Prozesse. Buchhaltung, Steuern & Beratung für KMU im Seeland.',
+  keywords: ['Treuhand', 'Lengnau', 'Steuerberatung', 'Buchhaltung', 'KMU', 'Digitalisierung', 'Bexora', 'Seeland'],
   viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+  icons: {
+    icon: '/favicon.ico', // Standard Pfad in Next.js
+  },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }) {
+  // JSON-LD Schema für lokales SEO
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     "name": "Pano & Partner AG",
-    "image": "",
+    "image": "https://bexora.ch/og-image.jpg",
     "@id": "https://bexora.ch",
     "url": "https://bexora.ch",
     "telephone": "+41 32 123 45 67",
@@ -55,9 +60,12 @@ export default function RootLayout({
   return (
     <html lang="de" className="scroll-smooth">
       <head>
+        {/* Fonts Optimization: Preconnect links are good, but Next/Font (Inter) is better if handled in tailwind/layout. 
+            Keeping manual links as fallback or specific implementation. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
