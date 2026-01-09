@@ -1,8 +1,8 @@
+import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
-import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Bexora | Digitale Treuhand & Unternehmensberatung Lengnau',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: ['Treuhand', 'Lengnau', 'Steuerberatung', 'Buchhaltung', 'KMU', 'Digitalisierung', 'Bexora', 'Seeland'],
   viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
   icons: {
-    icon: '/favicon.ico', // Standard Pfad in Next.js
+    icon: '/favicon.ico', 
   },
 };
 
@@ -19,7 +19,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // JSON-LD Schema für lokales SEO
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "AccountingService",
@@ -60,8 +59,6 @@ export default function RootLayout({
   return (
     <html lang="de" className="scroll-smooth">
       <head>
-        {/* Fonts Optimization: Preconnect links are good, but Next/Font (Inter) is better if handled in tailwind/layout. 
-            Keeping manual links as fallback or specific implementation. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
