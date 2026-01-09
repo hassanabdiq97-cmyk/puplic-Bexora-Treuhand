@@ -1,4 +1,6 @@
 
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, MapPin, Clock, X, CheckCircle2, ArrowRight } from 'lucide-react';
 import MagneticButton from './MagneticButton';

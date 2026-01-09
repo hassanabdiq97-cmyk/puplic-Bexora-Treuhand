@@ -1,9 +1,11 @@
+'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   X, Check, User, Building2, Users, BarChart3, FileText, ShieldCheck, 
   Cpu, HardDrive, Settings, Zap, ArrowLeft, TrendingUp, GraduationCap,
-  Home, Wallet, Landmark, Info, Plus, Lock, ArrowRight, Laptop
+  Home, Wallet, Landmark, Info, Plus, Lock, ArrowRight, Laptop, Heart,
+  Mail, UploadCloud, Coffee, FileCheck, Sparkles
 } from 'lucide-react';
 import { gsap } from 'gsap';
 
@@ -20,9 +22,10 @@ type Volume = 's' | 'm' | 'l';
 type Vat = 'none' | 'saldo' | 'effective';
 type Interval = 'year' | 'quarter';
 type PayrollLevel = 'base' | 'full';
-type ServiceType = 'tax' | 'advice';
 type CivilStatus = 'single' | 'married';
 type RealEstate = 'none' | 'one' | 'multiple';
+type DataSubmission = 'digital' | 'paper';
+type DeliveryMethod = 'digital' | 'meeting';
 
 const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onClose, onRequestQuote, lang }) => {
   const [animatedPrice, setAnimatedPrice] = useState(0);
@@ -37,7 +40,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
       activeBlocks: 'Module gewählt',
       summaryTitle: 'Zusammenfassung',
       monthly: 'Basis-Preis (mtl.)',
-      oneTime: 'Einmalige Investition',
+      oneTime: 'Investition',
       cta: 'Jetzt Offerte anfordern',
       ctaIndiv: 'Individuelles Paket anfragen',
       trust: 'Datenübertragung SSL-verschlüsselt',
@@ -51,8 +54,8 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
         business: 'Unternehmen'
       },
       finance: { 
-        title: calcType === 'business' ? 'Finanzbuchhaltung & Steuern' : 'Steuern & Vorsorge',
-        desc: calcType === 'business' ? 'Transparente Abrechnung basierend auf Ihrem Belegvolumen – inklusive Bankbewegungen.' : 'Professionelle Steuererklärung und Beratung.',
+        title: calcType === 'business' ? 'Finanzbuchhaltung & Steuern' : 'Steuererklärung privat',
+        desc: calcType === 'business' ? 'Transparente Abrechnung basierend auf Ihrem Belegvolumen – inklusive Bankbewegungen.' : 'Professionelle Steuererklärung für Privatpersonen.',
         q1: 'Welche Rechtsform hat Ihr Unternehmen?',
         q2: 'Wie viele Belege fallen pro Jahr etwa an?',
         q3: 'Sind Sie MWST-pflichtig?',
@@ -63,9 +66,11 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
            quarter: 'Quartalsabschluss',
            quarterDesc: '4x pro Jahr Zwischenabschluss.'
         },
-        p_q1: 'Welche Dienstleistung benötigen Sie?',
-        p_q2: 'Ihr Zivilstand?',
-        p_q3: 'Besitzen Sie Immobilien?',
+        p_q1: 'Ihr Zivilstand?',
+        p_q2: 'Besitzen Sie Immobilien?',
+        p_q3: 'Wie reichen Sie Ihre Unterlagen ein?',
+        p_q4: 'Gewünschter Abschluss?',
+        p_q5: 'Sparpotenzial & Optimierung',
       },
       payroll: { 
         title: 'Lohn & Personal', 
@@ -96,7 +101,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
       activeBlocks: 'Modules choisis',
       summaryTitle: 'Résumé',
       monthly: 'Honoraires de base (mens.)',
-      oneTime: 'Investissement unique',
+      oneTime: 'Investissement',
       cta: 'Demander l\'offre',
       ctaIndiv: 'Demander un pack individuel',
       trust: 'SSL sécurisé',
@@ -110,8 +115,8 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
         business: 'Entreprise'
       },
       finance: { 
-        title: calcType === 'business' ? 'Comptabilité & Impôts' : 'Impôts & Prévoyance',
-        desc: calcType === 'business' ? 'Facturation transparente basée sur votre volume – mouvements bancaires inclus.' : 'Déclaration fiscale et conseil professionnel.',
+        title: calcType === 'business' ? 'Comptabilité & Impôts' : 'Impôts privés',
+        desc: calcType === 'business' ? 'Facturation transparente basée sur votre volume – mouvements bancaires inclus.' : 'Déclaration fiscale professionnelle pour particuliers.',
         q1: 'Forme juridique ?',
         q2: 'Volume de pièces ?',
         q3: 'TVA ?',
@@ -122,9 +127,11 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
            quarter: 'Bouclage trimestriel',
            quarterDesc: '4x par an.'
         },
-        p_q1: 'Service requis ?',
-        p_q2: 'État civil ?',
-        p_q3: 'Immobilier ?',
+        p_q1: 'État civil ?',
+        p_q2: 'Immobilier ?',
+        p_q3: 'Transmission des données ?',
+        p_q4: 'Bouclage désiré ?',
+        p_q5: 'Potentiel d\'économie',
       },
       payroll: { 
         title: 'Salaires & RH', 
@@ -158,13 +165,25 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
   const [automationOpts, setAutomationOpts] = useState({ epost: false, managedIt: false, itDevices: 1, aiAudit: false });
 
   // Private State
-  const [privateOpts, setPrivateOpts] = useState<{service: ServiceType, civilStatus: CivilStatus, realEstate: RealEstate}>({ service: 'tax', civilStatus: 'single', realEstate: 'none' });
+  const [privateOpts, setPrivateOpts] = useState<{
+    civilStatus: CivilStatus, 
+    realEstate: RealEstate, 
+    submission: DataSubmission, 
+    delivery: DeliveryMethod,
+    insuranceCheck: boolean
+  }>({ 
+    civilStatus: 'single', 
+    realEstate: 'none',
+    submission: 'digital',
+    delivery: 'digital',
+    insuranceCheck: false
+  });
 
   // --- PRICING ENGINE ---
   const PRICES = {
     business: {
-      base: { single: 80, gmbh: 150, association: 0 },
-      volume: { s: 49, m: 149, l: 390 },
+      base: { single: 80, gmbh: 150, association: 0 }, 
+      volume: { s: 49, m: 99, l: 249 },
       vat: { none: 0, saldo: 80, effective: 160 },
       interval: { year: 0, quarter: 120 },
       payroll: { base: 35, full: 65 },
@@ -173,9 +192,12 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
       audit: 1500
     },
     private: {
-      base: { tax: 150, advice: 250 },
-      status: { single: 0, married: 50 },
-      realEstate: { none: 0, one: 100, multiple: 250 }
+      base: 0, 
+      status: { single: 120, married: 190 }, 
+      realEstate: { none: 0, one: 100, multiple: 250 },
+      submission: { digital: 0, paper: 50 },
+      delivery: { digital: 0, meeting: 120 },
+      insuranceDiscount: 20
     }
   };
 
@@ -204,9 +226,16 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
     } else {
       let cost = 0;
       if (activeBlocks.finance) {
-         cost += PRICES.private.base[privateOpts.service];
+         cost += PRICES.private.base;
          cost += PRICES.private.status[privateOpts.civilStatus];
          cost += PRICES.private.realEstate[privateOpts.realEstate];
+         cost += PRICES.private.submission[privateOpts.submission];
+         cost += PRICES.private.delivery[privateOpts.delivery];
+         
+         // Apply discount if insurance check is selected
+         if (privateOpts.insuranceCheck) {
+            cost -= PRICES.private.insuranceDiscount;
+         }
       }
       oneTime = cost; 
       monthly = 0;
@@ -236,28 +265,29 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
     </div>
   );
 
-  const SelectionCard = ({ selected, onClick, title, price, desc, icon: Icon, colorClass, badge, partner, children, fullWidth }: any) => {
+  const SelectionCard = ({ selected, onClick, title, price, desc, icon: Icon, colorClass, badge, partner, children, fullWidth, special }: any) => {
     const colors: any = {
       blue: { border: 'border-blue-600', bg: 'bg-blue-600/5', shadow: 'shadow-blue-600/10', text: 'text-blue-600', activeBorder: 'border-blue-500' },
       purple: { border: 'border-purple-500', bg: 'bg-purple-500/5', shadow: 'shadow-purple-500/10', text: 'text-purple-500', activeBorder: 'border-purple-500' },
       cyan: { border: 'border-cyan-400', bg: 'bg-cyan-400/5', shadow: 'shadow-cyan-400/10', text: 'text-cyan-500', activeBorder: 'border-cyan-400' },
-      amber: { border: 'border-amber-500', bg: 'bg-amber-500/5', shadow: 'shadow-amber-500/10', text: 'text-amber-500', activeBorder: 'border-amber-500' }
+      amber: { border: 'border-amber-500', bg: 'bg-amber-500/5', shadow: 'shadow-amber-500/10', text: 'text-amber-500', activeBorder: 'border-amber-500' },
+      emerald: { border: 'border-emerald-500', bg: 'bg-emerald-500/5', shadow: 'shadow-emerald-500/10', text: 'text-emerald-500', activeBorder: 'border-emerald-500' }
     };
     const c = colors[colorClass] || colors.blue;
 
     return (
       <div 
         onClick={onClick}
-        className={`relative p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col group backdrop-blur-md min-h-[140px] ${fullWidth ? 'w-full' : 'h-full'} ${selected ? `${c.activeBorder} ${c.bg} ${c.shadow}` : 'border-slate-200 dark:border-white/5 bg-white/50 dark:bg-white/[0.02] hover:border-slate-300 dark:hover:border-white/10'}`}
+        className={`relative p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col group backdrop-blur-md min-h-[140px] ${fullWidth ? 'w-full' : 'h-full'} ${selected ? `${c.activeBorder} ${c.bg} ${c.shadow}` : 'border-slate-200 dark:border-white/5 bg-white/50 dark:bg-white/[0.02] hover:border-slate-300 dark:hover:border-white/10'} ${special ? 'ring-2 ring-emerald-500/20' : ''}`}
       >
-        {badge && <span className={`absolute -top-3 -right-2 px-3 py-1 rounded-lg text-[9px] font-black text-white shadow-lg uppercase tracking-widest ${colorClass === 'blue' ? 'bg-blue-600' : (colorClass === 'amber' ? 'bg-amber-500' : 'bg-purple-500')}`}>{badge}</span>}
+        {badge && <span className={`absolute -top-3 -right-2 px-3 py-1 rounded-lg text-[9px] font-black text-white shadow-lg uppercase tracking-widest ${colorClass === 'blue' ? 'bg-blue-600' : (colorClass === 'amber' ? 'bg-amber-500' : (colorClass === 'emerald' ? 'bg-emerald-500' : 'bg-purple-500'))}`}>{badge}</span>}
         <div className="flex justify-between items-start mb-4">
           {Icon && <Icon className={`mb-3 ${selected ? c.text : 'text-slate-400 group-hover:text-slate-600'}`} size={24} />}
           {!Icon && <span className={`text-[10px] font-black uppercase tracking-widest ${selected ? c.text : 'text-slate-400'}`}>{price}</span>}
           {selected ? <div className={`p-1 rounded-full ${c.text.replace('text-', 'bg-')}/10`}><Check size={14} className={c.text} strokeWidth={4} /></div> : <div className="w-5 h-5 rounded-full border-2 border-slate-200 dark:border-white/10" />}
         </div>
         <div className="mt-auto">
-          {Icon && <span className={`block text-[10px] font-black uppercase tracking-widest mb-1 ${selected ? c.text : 'text-slate-400'}`}>{price}</span>}
+          {Icon && <span className={`block text-[10px] font-black uppercase tracking-widest mb-1 ${selected ? c.text : (special && !selected ? 'text-emerald-500' : 'text-slate-400')}`}>{price}</span>}
           <h4 className="text-base font-bold text-slate-900 dark:text-white leading-tight mb-2">{title}</h4>
           {desc && <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-1">{desc}</p>}
           {partner && <div className="mt-3 flex"><span className="text-[7px] font-black uppercase tracking-[0.2em] px-2 py-1 bg-cyan-500/10 text-cyan-500 border border-cyan-500/20 rounded-lg">Powered by {partner}</span></div>}
@@ -273,7 +303,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
   return (
     <div className="fixed inset-0 z-[120] bg-slate-50/95 dark:bg-[#020617]/95 backdrop-blur-2xl overflow-y-auto font-sans animate-in fade-in slide-in-from-bottom-8 duration-700">
       <div className="max-w-[1400px] mx-auto px-6 py-12 md:py-20">
-        <button onClick={onClose} className={`flex items-center gap-3 font-bold text-xs uppercase tracking-widest mb-16 transition-all group ${accentClass} hover:opacity-70`}>
+        <button onClick={onClose} className={`flex items-center gap-3 font-bold text-xs uppercase tracking-widest mb-8 md:mb-16 transition-all group ${accentClass} hover:opacity-70`}>
           <div className={`p-2 rounded-full ${calcType === 'business' ? 'bg-blue-600/10' : 'bg-amber-500/10'} group-hover:scale-90 transition-transform`}>
             <ArrowLeft size={18} />
           </div>
@@ -310,20 +340,25 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
 
             {/* FINANCE BLOCK */}
             <div className={`relative bg-white/60 dark:bg-white/[0.02] rounded-[3rem] border transition-all duration-500 overflow-hidden ${activeBlocks.finance ? (calcType === 'business' ? 'border-blue-600/30' : 'border-amber-500/30') : 'border-slate-200 opacity-70'}`}>
-              <div className={`p-10 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.finance ? (calcType === 'business' ? 'bg-blue-600/[0.02]' : 'bg-amber-500/[0.02]') : ''}`} onClick={() => setActiveBlocks(p => ({...p, finance: !p.finance}))}>
-                <div className="flex items-center gap-8">
-                  <div className={`w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-500 ${activeBlocks.finance ? (calcType === 'business' ? 'bg-blue-600 text-white shadow-xl' : 'bg-amber-500 text-white shadow-xl') : 'bg-slate-100 text-slate-400'}`}>
-                    {calcType === 'business' ? <BarChart3 size={36} strokeWidth={1.5} /> : <User size={36} strokeWidth={1.5} />}
+              <div className={`p-6 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.finance ? (calcType === 'business' ? 'bg-blue-600/[0.02]' : 'bg-amber-500/[0.02]') : ''}`} onClick={() => setActiveBlocks(p => ({...p, finance: !p.finance}))}>
+                <div className="flex items-center gap-4 md:gap-8 flex-1">
+                  <div className={`w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl flex items-center justify-center shrink-0 transition-all duration-500 ${activeBlocks.finance ? (calcType === 'business' ? 'bg-blue-600 text-white shadow-xl' : 'bg-amber-500 text-white shadow-xl') : 'bg-slate-100 text-slate-400'}`}>
+                    {calcType === 'business' ? <BarChart3 className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} /> : <User className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} />}
                   </div>
-                  <div><h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">{t.finance.title}</h3><p className="text-base text-slate-500 font-light">{t.finance.desc}</p></div>
+                  <div className="pr-4">
+                    <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{t.finance.title}</h3>
+                    <p className="text-xs md:text-base text-slate-500 font-light line-clamp-2 md:line-clamp-none">{t.finance.desc}</p>
+                  </div>
                 </div>
-                <ToggleSwitch active={activeBlocks.finance} colorClass={calcType === 'business' ? 'bg-blue-600' : 'bg-amber-500'} onToggle={() => setActiveBlocks(p => ({...p, finance: !p.finance}))} />
+                <div className="shrink-0">
+                  <ToggleSwitch active={activeBlocks.finance} colorClass={calcType === 'business' ? 'bg-blue-600' : 'bg-amber-500'} onToggle={() => setActiveBlocks(p => ({...p, finance: !p.finance}))} />
+                </div>
               </div>
               {activeBlocks.finance && (
-                <div className="p-10 md:p-14 pt-0 border-t border-slate-200/50 space-y-16 animate-in fade-in duration-500">
+                <div className="p-6 md:p-14 pt-0 border-t border-slate-200/50 space-y-16 animate-in fade-in duration-500">
                   {calcType === 'business' ? (
                     <>
-                      <div className="pt-14"><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.q1}</label>
+                      <div className="pt-8 md:pt-14"><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                           <SelectionCard title="Einzelfirma" price="80.-/Mo" desc="Optimiert für Einzelunternehmer." selected={financeOpts.legalForm === 'single'} onClick={() => setFinanceOpts(p => ({...p, legalForm: 'single'}))} colorClass="blue" />
                           <SelectionCard title="GmbH / AG" price="150.-/Mo" desc="Fokus auf Kapitalgesellschaften." selected={financeOpts.legalForm === 'gmbh'} onClick={() => setFinanceOpts(p => ({...p, legalForm: 'gmbh'}))} colorClass="blue" badge="Mandats-Tipp" />
@@ -354,11 +389,62 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                       )}
                     </>
                   ) : (
-                    <div className="pt-14 space-y-16">
+                    <div className="pt-8 md:pt-14 space-y-16">
+                      {/* Civil Status Section */}
                       <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <SelectionCard title="Steuern" price="150.-" desc="Vollständige Steuererklärung." selected={privateOpts.service === 'tax'} onClick={() => setPrivateOpts(p => ({...p, service: 'tax'}))} colorClass="amber" />
-                          <SelectionCard title="Vorsorge" price="250.-" desc="Analyse & Optimierung." selected={privateOpts.service === 'advice'} onClick={() => setPrivateOpts(p => ({...p, service: 'advice'}))} colorClass="amber" />
+                          <SelectionCard title={lang === 'DE' ? "Alleinstehend / Ledig" : "Célibataire"} price="120.-" desc={lang === 'DE' ? "Einzelperson" : "Personne seule"} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
+                          <SelectionCard title={lang === 'DE' ? "Verheiratet" : "Marié(e)"} price="190.-" desc={lang === 'DE' ? "Zusammen veranlagt" : "Imposition commune"} selected={privateOpts.civilStatus === 'married'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'married'}))} colorClass="amber" icon={Heart} />
+                        </div>
+                      </div>
+
+                      {/* Real Estate Section */}
+                      <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q2}</label>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          <SelectionCard title={lang === 'DE' ? "Keine" : "Aucun"} price="+ 0.-" desc={lang === 'DE' ? "Kein Wohneigentum" : "Pas de propriété"} selected={privateOpts.realEstate === 'none'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'none'}))} colorClass="amber" />
+                          <SelectionCard title={lang === 'DE' ? "Eine Immobilie" : "Un bien"} price="+ 100.-" desc={lang === 'DE' ? "Eigenheim / Stockwerk" : "Maison / Appartement"} selected={privateOpts.realEstate === 'one'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'one'}))} colorClass="amber" icon={Home} />
+                          <SelectionCard title={lang === 'DE' ? "Mehrere" : "Plusieurs"} price="+ 250.-" desc={lang === 'DE' ? "Liegenschaftsverwaltung" : "Gestion immobilière"} selected={privateOpts.realEstate === 'multiple'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'multiple'}))} colorClass="amber" icon={Building2} />
+                        </div>
+                      </div>
+
+                       {/* Insurance Optimization Section (Lead Gen) */}
+                       <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q5}</label>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <SelectionCard 
+                            title={lang === 'DE' ? "Kostenloser Check" : "Analyse gratuite"} 
+                            price="- 20.-" 
+                            desc={lang === 'DE' ? "Unverbindlicher Versicherungsvergleich: Wir prüfen Ihr Sparpotenzial." : "Comparaison d'assurance sans engagement."} 
+                            selected={privateOpts.insuranceCheck === true} 
+                            onClick={() => setPrivateOpts(p => ({...p, insuranceCheck: true}))} 
+                            colorClass="emerald" 
+                            icon={ShieldCheck} 
+                            badge={lang === 'DE' ? "Kombi-Rabatt" : "Rabais combiné"}
+                            special
+                          />
+                          <SelectionCard 
+                            title={lang === 'DE' ? "Keine Optimierung" : "Pas d'optimisation"} 
+                            price="+ 0.-" 
+                            desc={lang === 'DE' ? "Nur Steuererklärung ausfüllen." : "Remplir uniquement la déclaration."} 
+                            selected={privateOpts.insuranceCheck === false} 
+                            onClick={() => setPrivateOpts(p => ({...p, insuranceCheck: false}))} 
+                            colorClass="amber" 
+                          />
+                        </div>
+                      </div>
+
+                      {/* Data Submission Section */}
+                      <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q3}</label>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <SelectionCard title={lang === 'DE' ? "Digital (Upload)" : "Numérique"} price="+ 0.-" desc={lang === 'DE' ? "Bexora-Portal" : "Upload via portail"} selected={privateOpts.submission === 'digital'} onClick={() => setPrivateOpts(p => ({...p, submission: 'digital'}))} colorClass="amber" icon={UploadCloud} />
+                          <SelectionCard title={lang === 'DE' ? "Per Post" : "Par courrier"} price="+ 50.-" desc={lang === 'DE' ? "Physische Einreichung" : "Envoi physique"} selected={privateOpts.submission === 'paper'} onClick={() => setPrivateOpts(p => ({...p, submission: 'paper'}))} colorClass="amber" icon={Mail} />
+                        </div>
+                      </div>
+
+                      {/* Delivery / Consultation Section */}
+                      <div><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.finance.p_q4}</label>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <SelectionCard title={lang === 'DE' ? "Nur digital" : "Digital seul"} price="+ 0.-" desc={lang === 'DE' ? "Zustellung per E-Mail" : "Envoi par email"} selected={privateOpts.delivery === 'digital'} onClick={() => setPrivateOpts(p => ({...p, delivery: 'digital'}))} colorClass="amber" icon={FileCheck} />
+                          <SelectionCard title={lang === 'DE' ? "Besprechung Büro" : "Séance au bureau"} price="+ 120.-" desc={lang === 'DE' ? "30 Min. in Lengnau" : "30 min de conseil"} selected={privateOpts.delivery === 'meeting'} onClick={() => setPrivateOpts(p => ({...p, delivery: 'meeting'}))} colorClass="amber" icon={Building2} />
                         </div>
                       </div>
                     </div>
@@ -370,16 +456,23 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
             {/* PAYROLL BLOCK */}
             {calcType === 'business' && (
               <div className={`relative bg-white/60 dark:bg-white/[0.02] rounded-[3rem] border transition-all duration-500 overflow-hidden ${activeBlocks.payroll ? 'border-purple-500/30 shadow-xl shadow-purple-500/5' : 'border-slate-200 opacity-70'}`}>
-                <div className={`p-10 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.payroll ? 'bg-purple-500/[0.02]' : ''}`} onClick={() => setActiveBlocks(p => ({...p, payroll: !p.payroll}))}>
-                  <div className="flex items-center gap-8">
-                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-500 ${activeBlocks.payroll ? 'bg-purple-500 text-white' : 'bg-slate-100 text-slate-400'}`}><Users size={36} strokeWidth={1.5} /></div>
-                    <div><h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">{t.payroll.title}</h3><p className="text-base text-slate-500 font-light">{t.payroll.desc}</p></div>
+                <div className={`p-6 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.payroll ? 'bg-purple-500/[0.02]' : ''}`} onClick={() => setActiveBlocks(p => ({...p, payroll: !p.payroll}))}>
+                  <div className="flex items-center gap-4 md:gap-8 flex-1">
+                    <div className={`w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl flex items-center justify-center shrink-0 transition-all duration-500 ${activeBlocks.payroll ? 'bg-purple-500 text-white' : 'bg-slate-100 text-slate-400'}`}>
+                      <Users className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} />
+                    </div>
+                    <div className="pr-4">
+                      <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{t.payroll.title}</h3>
+                      <p className="text-xs md:text-base text-slate-500 font-light line-clamp-2 md:line-clamp-none">{t.payroll.desc}</p>
+                    </div>
                   </div>
-                  <ToggleSwitch active={activeBlocks.payroll} colorClass="bg-purple-500" onToggle={() => setActiveBlocks(p => ({...p, payroll: !p.payroll}))} />
+                  <div className="shrink-0">
+                    <ToggleSwitch active={activeBlocks.payroll} colorClass="bg-purple-500" onToggle={() => setActiveBlocks(p => ({...p, payroll: !p.payroll}))} />
+                  </div>
                 </div>
                 {activeBlocks.payroll && (
-                  <div className="p-10 md:p-14 pt-0 border-t border-slate-200/50 space-y-20 animate-in fade-in duration-500">
-                    <div className="mt-14 pt-14 flex flex-col bg-slate-100/30 dark:bg-white/5 p-12 rounded-[2.5rem]">
+                  <div className="p-6 md:p-14 pt-0 border-t border-slate-200/50 space-y-20 animate-in fade-in duration-500">
+                    <div className="mt-8 md:mt-14 pt-8 md:pt-14 flex flex-col bg-slate-100/30 dark:bg-white/5 p-8 md:p-12 rounded-[2.5rem]">
                         <div className="w-full flex justify-between items-end mb-12"><label className="text-[10px] font-black uppercase text-slate-400 tracking-widest">{t.payroll.q1}</label><div className="flex items-baseline gap-2"><span className="text-4xl font-black text-purple-500 tabular-nums">{payrollOpts.employees}</span><span className="text-xs font-bold text-slate-400">MA</span></div></div>
                         <input type="range" min="1" max="50" value={payrollOpts.employees} onChange={e => setPayrollOpts(p => ({...p, employees: parseInt(e.target.value)}))} className="w-full h-3 bg-slate-200 appearance-none accent-purple-500 rounded-full" />
                     </div>
@@ -398,16 +491,23 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
             {/* AUTOMATION BLOCK */}
             {calcType === 'business' && (
               <div className={`relative bg-white/60 dark:bg-white/[0.02] rounded-[3rem] border transition-all duration-500 overflow-hidden ${activeBlocks.automation ? 'border-cyan-400/30 shadow-xl shadow-cyan-400/5' : 'border-slate-200 opacity-70'}`}>
-                <div className={`p-10 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.automation ? 'bg-cyan-400/[0.02]' : ''}`} onClick={() => setActiveBlocks(p => ({...p, automation: !p.automation}))}>
-                  <div className="flex items-center gap-8">
-                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-500 ${activeBlocks.automation ? 'bg-cyan-400 text-slate-950' : 'bg-slate-100 text-slate-400'}`}><Cpu size={36} strokeWidth={1.5} /></div>
-                    <div><h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">{t.it.title}</h3><p className="text-base text-slate-500 font-light">{t.it.desc}</p></div>
+                <div className={`p-6 md:p-12 flex items-center justify-between cursor-pointer ${activeBlocks.automation ? 'bg-cyan-400/[0.02]' : ''}`} onClick={() => setActiveBlocks(p => ({...p, automation: !p.automation}))}>
+                  <div className="flex items-center gap-4 md:gap-8 flex-1">
+                    <div className={`w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl flex items-center justify-center shrink-0 transition-all duration-500 ${activeBlocks.automation ? 'bg-cyan-400 text-slate-950' : 'bg-slate-100 text-slate-400'}`}>
+                      <Cpu className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} />
+                    </div>
+                    <div className="pr-4">
+                      <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{t.it.title}</h3>
+                      <p className="text-xs md:text-base text-slate-500 font-light line-clamp-2 md:line-clamp-none">{t.it.desc}</p>
+                    </div>
                   </div>
-                  <ToggleSwitch active={activeBlocks.automation} colorClass="bg-cyan-400" onToggle={() => setActiveBlocks(p => ({...p, automation: !p.automation}))} />
+                  <div className="shrink-0">
+                    <ToggleSwitch active={activeBlocks.automation} colorClass="bg-cyan-400" onToggle={() => setActiveBlocks(p => ({...p, automation: !p.automation}))} />
+                  </div>
                 </div>
                 {activeBlocks.automation && (
-                  <div className="p-10 md:p-14 pt-0 border-t border-slate-200/50 space-y-8 animate-in fade-in duration-500">
-                    <div className="pt-14"><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.it.q1}</label>
+                  <div className="p-6 md:p-14 pt-0 border-t border-slate-200/50 space-y-8 animate-in fade-in duration-500">
+                    <div className="pt-8 md:pt-14"><label className="text-[10px] font-black uppercase text-slate-400 mb-8 block tracking-widest">{t.it.q1}</label>
                       <div className="flex flex-col gap-6">
                         <SelectionCard title={t.it.labels.epost} price={`+ ${PRICES.business.epost}.-/Mo`} desc={t.it.labels.epostDesc} selected={automationOpts.epost} onClick={() => setAutomationOpts(p => ({...p, epost: !p.epost}))} colorClass="cyan" partner="NextLab" fullWidth />
                         
@@ -440,11 +540,25 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
               <div className="space-y-6 mb-12">
                 {/* FINANCE SUMMARY */}
                 <div className={`flex justify-between items-center text-sm p-4 rounded-2xl border-l-4 transition-all ${activeBlocks.finance ? (calcType === 'business' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-600/5' : 'border-amber-500 bg-amber-50/50 dark:bg-amber-500/5') : 'border-slate-200 grayscale'}`}>
-                  <span className="font-bold text-slate-600 dark:text-slate-400">Finanzen</span>
+                  <span className="font-bold text-slate-600 dark:text-slate-400">{calcType === 'business' ? 'Finanzen' : 'Steuern'}</span>
                   <span className="text-slate-900 dark:text-white font-black">
-                    {activeBlocks.finance ? (isAssociation ? t.indivCheck : `CHF ${totals.monthly - (activeBlocks.payroll ? payrollOpts.employees * PRICES.business.payroll[payrollOpts.level] : 0) - (activeBlocks.automation && automationOpts.epost ? 135 : 0) - (activeBlocks.automation && automationOpts.managedIt ? automationOpts.itDevices * 130 : 0)}.-`) : '—'}
+                    {activeBlocks.finance ? (
+                        isAssociation ? t.indivCheck : 
+                        (calcType === 'business' 
+                            ? `CHF ${totals.monthly - (activeBlocks.payroll ? payrollOpts.employees * PRICES.business.payroll[payrollOpts.level] : 0) - (activeBlocks.automation && automationOpts.epost ? 135 : 0) - (activeBlocks.automation && automationOpts.managedIt ? automationOpts.itDevices * 130 : 0)}.-`
+                            : `CHF ${totals.oneTime}.-`
+                        )
+                    ) : '—'}
                   </span>
                 </div>
+
+                {/* INSURANCE DISCOUNT SUMMARY */}
+                {calcType === 'private' && privateOpts.insuranceCheck && (
+                   <div className="flex justify-between items-center text-sm p-4 rounded-2xl border-l-4 border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/5 transition-all">
+                      <span className="font-bold text-slate-600 dark:text-slate-400">Kombi-Rabatt</span>
+                      <span className="text-emerald-500 font-black">- CHF 20.-</span>
+                   </div>
+                )}
 
                 {/* PAYROLL SUMMARY */}
                 {calcType === 'business' && (

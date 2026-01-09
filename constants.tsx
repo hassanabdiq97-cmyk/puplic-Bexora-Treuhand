@@ -91,7 +91,7 @@ export const TRANSLATIONS = {
       contact: {
         title: 'Kontakt aufnehmen.',
         info: {
-          address: 'Solothurnstrasse 12, 2543 Lengnau'
+          address: 'Solothurnstrasse 44, 2543 Lengnau'
         },
         form: {
           name: 'Vorname Nachname',
@@ -100,7 +100,7 @@ export const TRANSLATIONS = {
           btn: 'Anfrage senden'
         },
         footer: {
-          copyright: '© 2024 BEXORA TREUHAND AG',
+          copyright: '© 2015 Pano & Partner AG',
           automatedBy: 'AUTOMATISIERT DURCH'
         }
       }
@@ -158,7 +158,7 @@ export const TRANSLATIONS = {
       services: {
         title: 'Accompagnement global.',
         accent: 'Accompagnement',
-        desc: 'Quatre domaines d\'expertise, une vision : efficacité maximale grâce à l\'excellence numérique pour les PME du Seeland.',
+        desc: 'Quatre domaines d\'expertise, eine vision : efficacité maximale grâce à l\'excellence numérique pour les PME du Seeland.',
         cta: 'Forfait individuel'
       },
       pricing: {
@@ -197,7 +197,7 @@ export const TRANSLATIONS = {
               'Conseil en transformation digitale'
             ],
             requirements: [
-              'Expert fiduciaire dipl. ou brevet fédéral',
+              'Expert fiduciaire dipl. oder brevet fédéral',
               'Maîtrise des outils digitaux (Abacus, bexio)',
               'Capacité d\'analyse et sens du conseil',
               'Précision et autonomie'
@@ -228,7 +228,7 @@ export const TRANSLATIONS = {
       contact: {
         title: 'Prendre contact.',
         info: {
-          address: 'Solothurnstrasse 12, 2543 Lengnau'
+          address: 'Solothurnstrasse 44, 2543 Lengnau'
         },
         form: {
           name: 'Prénom Nom',
@@ -237,7 +237,7 @@ export const TRANSLATIONS = {
           btn: 'Envoyer la demande'
         },
         footer: {
-          copyright: '© 2024 BEXORA TREUHAND AG',
+          copyright: '© 2015 Pano & Partner AG',
           automatedBy: 'AUTOMATISÉ PAR'
         }
       }

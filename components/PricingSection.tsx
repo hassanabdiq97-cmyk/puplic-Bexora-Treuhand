@@ -1,6 +1,9 @@
 
+'use client';
+
 import React from 'react';
 import { User, Building2, Check, ArrowRight } from 'lucide-react';
+import MagneticButton from './MagneticButton';
 
 interface PricingSectionProps {
   onOpenCalculator: (type: 'private' | 'business') => void;
@@ -32,7 +35,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
       private: {
         title: 'Particulier',
         subtitle: 'Impôts',
-        desc: 'Optimisation fiscale ohne souci pour particuliers – digital et ponctuel.',
+        desc: 'Optimisation fiscale sans souci pour particuliers – digital et ponctuel.',
         priceLabel: 'Dès (unique)',
         features: ['Économies maximales', 'Transmission digitale', 'Revue personnelle'],
         cta: 'Calculer le prix'
@@ -51,57 +54,84 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-      {/* PRIVATE - AMBER COLORS */}
-      <div className="group relative p-10 rounded-[3rem] bg-white dark:bg-slate-900/40 border-2 border-slate-100 dark:border-white/5 transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 shadow-xl hover:shadow-amber-500/5">
-         <div className="flex items-center gap-6 mb-10">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 shadow-inner border border-amber-500/20"><User size={28}/></div>
+      {/* Private Card */}
+      <div className="group relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 shadow-xl hover:shadow-amber-500/5 flex flex-col h-full">
+         <div className="flex items-center gap-6 mb-8">
+            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 shadow-inner border border-amber-500/20">
+                <User size={28}/>
+            </div>
             <div>
-               <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">{content.private.title}</h3>
-               <p className="text-amber-500 text-xs font-black uppercase tracking-widest">{content.private.subtitle}</p>
+               <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{content.private.title}</h3>
+               <p className="text-amber-500 font-bold uppercase text-xs tracking-widest">{content.private.subtitle}</p>
             </div>
          </div>
-         <p className="text-slate-500 dark:text-slate-400 mb-10 font-light leading-relaxed">{content.private.desc}</p>
-         <div className="mb-10 text-center py-8 bg-amber-50/50 dark:bg-amber-500/5 rounded-3xl border border-amber-100 dark:border-amber-500/10">
-            <p className="text-[10px] font-black uppercase text-slate-400 mb-1">{content.private.priceLabel}</p>
-            <p className="text-4xl font-black text-slate-900 dark:text-white">150.- <span className="text-sm font-bold text-slate-400">CHF</span></p>
+         
+         <div className="mb-8 py-6 border-y border-slate-100 dark:border-white/5">
+            <p className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">{content.private.priceLabel}</p>
+            <div className="flex items-baseline gap-1">
+                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 120.-</span>
+            </div>
          </div>
-         <ul className="space-y-4 mb-10">
-            {content.private.features.map((f, i) => (
-               <li key={i} className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
-                  <Check size={14} className="text-amber-500" /> {f}
-               </li>
+         
+         <p className="text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-8">
+            {content.private.desc}
+         </p>
+
+         <div className="space-y-4 mb-10 flex-grow">
+            {content.private.features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                    <Check size={16} className="text-amber-500" /> {feature}
+                </div>
             ))}
-         </ul>
-         <button onClick={() => onOpenCalculator('private')} className="w-full py-5 rounded-2xl bg-amber-500 text-white font-black text-sm uppercase tracking-widest shadow-xl shadow-amber-500/20 hover:bg-amber-600 transition-all flex items-center justify-center gap-3">
-            {content.private.cta} <ArrowRight size={18}/>
-         </button>
+         </div>
+
+         <div className="mt-auto">
+            <MagneticButton variant="outline" className="!w-full !py-4 group-hover:!border-amber-500 group-hover:!text-amber-500" onClick={() => onOpenCalculator('private')}>
+                {content.private.cta}
+            </MagneticButton>
+         </div>
       </div>
 
-      {/* BUSINESS - BLUE COLORS */}
-      <div className="group relative p-10 rounded-[3rem] bg-slate-900 border-2 border-white/5 transition-all duration-500 hover:-translate-y-2 hover:border-blue-600/50 shadow-2xl">
-         <div className="absolute top-8 right-8 bg-blue-600 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-blue-600/30">{content.business.badge}</div>
-         <div className="flex items-center gap-6 mb-10">
-            <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 border border-blue-600/20"><Building2 size={28}/></div>
+      {/* Business Card */}
+      <div className="group relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-blue-600/30 shadow-xl hover:shadow-blue-600/5 flex flex-col h-full">
+         <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-bl-2xl rounded-tr-[2.3rem]">
+            {content.business.badge}
+         </div>
+         
+         <div className="flex items-center gap-6 mb-8">
+            <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 shadow-inner border border-blue-600/20">
+                <Building2 size={28}/>
+            </div>
             <div>
-               <h3 className="text-2xl font-black text-white tracking-tight">{content.business.title}</h3>
-               <p className="text-blue-600 text-xs font-black uppercase tracking-widest">{content.business.subtitle}</p>
+               <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{content.business.title}</h3>
+               <p className="text-blue-600 font-bold uppercase text-xs tracking-widest">{content.business.subtitle}</p>
             </div>
          </div>
-         <p className="text-slate-400 mb-10 font-light leading-relaxed">{content.business.desc}</p>
-         <div className="mb-10 text-center py-8 bg-white/5 rounded-3xl border border-white/5">
-            <p className="text-[10px] font-black uppercase text-slate-500 mb-1">{content.business.priceLabel}</p>
-            <p className="text-4xl font-black text-white">129.- <span className="text-sm font-bold text-slate-500">CHF</span></p>
+
+         <div className="mb-8 py-6 border-y border-slate-100 dark:border-white/5">
+            <p className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">{content.business.priceLabel}</p>
+            <div className="flex items-baseline gap-1">
+                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 129.-</span>
+            </div>
          </div>
-         <ul className="space-y-4 mb-10">
-            {content.business.features.map((f, i) => (
-               <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                  <Check size={14} className="text-blue-600" /> {f}
-               </li>
+         
+         <p className="text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-8">
+            {content.business.desc}
+         </p>
+
+         <div className="space-y-4 mb-10 flex-grow">
+            {content.business.features.map((feature, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                    <Check size={16} className="text-blue-600" /> {feature}
+                </div>
             ))}
-         </ul>
-         <button onClick={() => onOpenCalculator('business')} className="w-full py-5 rounded-2xl bg-blue-600 text-white font-black text-sm uppercase tracking-widest shadow-xl shadow-blue-600/20 hover:bg-blue-500 transition-all flex items-center justify-center gap-3">
-            {content.business.cta} <ArrowRight size={18}/>
-         </button>
+         </div>
+
+         <div className="mt-auto">
+            <MagneticButton variant="primary" className="!w-full !py-4" onClick={() => onOpenCalculator('business')}>
+                {content.business.cta}
+            </MagneticButton>
+         </div>
       </div>
     </div>
   );
