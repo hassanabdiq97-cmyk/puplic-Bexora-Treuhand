@@ -1,0 +1,44 @@
+
+{
+  "common": {
+    "back": "RETOUR",
+    "close": "Fermer",
+    "apply": "Postuler maintenant",
+    "send": "Envoyer la demande",
+    "calculate": "Calculer le prix"
+  },
+  "aria": {
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "toggleTheme": "Changer le thème",
+    "toggleLang": "Changer la langue en Allemand",
+    "submitContact": "Envoyer le formulaire de contact",
+    "scrollToTop": "Retour en haut"
+  },
+  "nav": {
+    "services": "Services",
+    "careers": "Carrière",
+    "contact": "Contact",
+    "calculator": "DEVIS RAPIDE"
+  },
+  "hero": {
+    "badge": "Fiduciaire Bexora — Lengnau / Seeland",
+    "title": "Focus sur votre business.",
+    "accent": "Nous gérons le reste.",
+    "desc": "Nous allions expertise personnelle et efficacité numérique. Obtenez une clarté financière en temps réel et des conseils proactifs.",
+    "ctaPrimary": "Prendre rendez-vous",
+    "ctaSecondary": "Calculateur"
+  },
+  "contact": {
+    "title": "Prendre contact.",
+    "address": "Solothurnstrasse 44, 2543 Lengnau",
+    "placeholderName": "Prénom Nom",
+    "placeholderEmail": "Adresse E-Mail",
+    "placeholderMessage": "Comment pouvons-nous vous aider ?",
+    "success": "Merci ! Nous vous contacterons sous peu."
+  },
+  "footer": {
+    "copyright": "© 2015 Pano & Partner AG",
+    "automatedBy": "AUTOMATISÉ PAR"
+  }
+}

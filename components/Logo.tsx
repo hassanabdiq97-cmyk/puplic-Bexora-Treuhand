@@ -1,9 +1,18 @@
 
 import React from 'react';
 
-const Logo: React.FC<{ className?: string }> = ({ className }) => {
+const Logo: React.FC<{ className?: string, 'aria-hidden'?: boolean }> = ({ className, 'aria-hidden': ariaHidden }) => {
   return (
-    <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <svg 
+      viewBox="0 0 500 500" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg" 
+      className={className}
+      aria-hidden={ariaHidden}
+      role={ariaHidden ? 'presentation' : 'img'}
+      aria-label={ariaHidden ? undefined : 'Bexora Treuhand Logo'}
+    >
+      <title>Bexora Treuhand Logo</title>
       <defs>
         <linearGradient id="logoBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#1E40AF" />

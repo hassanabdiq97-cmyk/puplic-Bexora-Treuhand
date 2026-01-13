@@ -1,21 +1,21 @@
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Building2, User, Hash } from 'lucide-react';
 import type { Metadata } from 'next';
-import LegalNavigation from '../../components/LegalNavigation';
+import LegalNavigation from '../../../components/LegalNavigation';
 
 export const metadata: Metadata = {
-  title: 'Impressum & Rechtliches | Bexora Treuhand AG',
-  description: 'Rechtliche Informationen, Handelsregistereintrag (CHE-215.111.954) und Kontaktangaben der Pano & Partner AG (Bexora).',
+  title: 'Mentions Légales | Bexora Fiduciaire SA',
+  description: 'Informations juridiques, registre du commerce (CHE-215.111.954) et contact de Pano & Partner AG (Bexora).',
   alternates: {
-    canonical: 'https://bexora.ch/impressum',
+    canonical: 'https://fr.bexora.ch/impressum',
     languages: {
       'de-CH': 'https://bexora.ch/impressum',
       'fr-CH': 'https://fr.bexora.ch/impressum',
     },
   },
   robots: {
-    index: false, 
+    index: false,
     follow: true,
   }
 };
@@ -23,18 +23,18 @@ export const metadata: Metadata = {
 export default function ImpressumPage() {
   const t = {
     title: 'Impressum.',
-    company: 'Unternehmen',
-    rep: 'Vertretung',
-    management: 'Geschäftsführung',
-    register: 'Register & Kontakt',
-    registryText: 'Handelsregister: Kanton Bern.',
-    rights: 'Alle Rechte vorbehalten.',
-    back: 'ZURÜCK'
+    company: 'Entreprise',
+    rep: 'Représentation',
+    management: 'Direction',
+    register: 'Registre & Contact',
+    registryText: 'Registre du commerce : Canton de Berne.',
+    rights: 'Tous droits réservés.',
+    back: 'RETOUR'
   };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600/30 transition-colors duration-500">
-      <LegalNavigation lang="DE" backLabel={t.back} />
+      <LegalNavigation lang="FR" backLabel={t.back} />
 
       <main className="pt-40 pb-20 px-6 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-black mb-16 tracking-tighter text-slate-900 dark:text-white">{t.title}</h1>
@@ -49,7 +49,7 @@ export default function ImpressumPage() {
               <p className="text-slate-900 dark:text-white font-bold">Pano & Partner AG</p>
               <p>Solothurnstrasse 44</p>
               <p>2543 Lengnau</p>
-              <p>Schweiz</p>
+              <p>Suisse</p>
             </div>
           </section>
 

@@ -2,15 +2,19 @@
 'use client';
 
 import React from 'react';
+import { deDict } from '../dictionaries/de';
+import { frDict } from '../dictionaries/fr';
 
 const partners = ["NextLab", "bexio", "Abacus", "Dr. Tax", "Microsoft 365"];
 
 export default function TrustBar({ lang = 'DE' }: { lang?: 'DE' | 'FR' }) {
+  const dict = lang === 'DE' ? deDict : frDict;
+  
   return (
     <div className="relative z-20 w-full py-12 bg-white/50 dark:bg-dark-950/50 border-y border-slate-200/50 dark:border-white/5 overflow-hidden group">
       <div className="max-w-7xl mx-auto px-6 mb-6">
         <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">
-          {lang === 'DE' ? 'UNSERE DIGITALEN PARTNER' : 'NOS PARTENAIRES DIGITAUX'}
+          {dict.trust.title}
         </p>
       </div>
       <div className="flex overflow-hidden relative user-select-none">

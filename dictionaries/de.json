@@ -1,0 +1,44 @@
+
+{
+  "common": {
+    "back": "ZURÜCK",
+    "close": "Schliessen",
+    "apply": "Jetzt bewerben",
+    "send": "Anfrage senden",
+    "calculate": "Preis berechnen"
+  },
+  "aria": {
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schliessen",
+    "toggleTheme": "Farbschema wechseln",
+    "toggleLang": "Sprache zu Französisch wechseln",
+    "submitContact": "Kontaktformular absenden",
+    "scrollToTop": "Nach oben scrollen"
+  },
+  "nav": {
+    "services": "Dienstleistungen",
+    "careers": "Karriere",
+    "contact": "Kontakt",
+    "calculator": "PREISRECHNER"
+  },
+  "hero": {
+    "badge": "Bexora Treuhand — Lengnau / Seeland",
+    "title": "Fokus auf Ihr Business.",
+    "accent": "Wir erledigen den Rest.",
+    "desc": "Wir verbinden persönliche Expertise mit digitaler Effizienz. Erhalten Sie finanzielle Klarheit in Echtzeit und proaktive Beratung.",
+    "ctaPrimary": "Erstgespräch sichern",
+    "ctaSecondary": "Preisrechner"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen.",
+    "address": "Solothurnstrasse 44, 2543 Lengnau",
+    "placeholderName": "Vorname Nachname",
+    "placeholderEmail": "E-Mail Adresse",
+    "placeholderMessage": "Wie können wir Sie unterstützen?",
+    "success": "Vielen Dank! Wir melden uns umgehend."
+  },
+  "footer": {
+    "copyright": "© 2015 Pano & Partner AG",
+    "automatedBy": "AUTOMATISIERT DURCH"
+  }
+}
