@@ -1,7 +1,9 @@
+
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
+import { navigate } from '../utils/safeNavigation';
 
 interface SafeLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -10,21 +12,20 @@ interface SafeLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const SafeLink: React.FC<SafeLinkProps> = ({ href, children, className, ...props }) => {
-  // Detect if we are in a pure client-side environment (Preview) without Next.js hydration.
-  // Next.js injects __NEXT_DATA__ into the window object.
-  // If window is undefined (SSR) or __NEXT_DATA__ exists, we assume Next.js context is active.
-  const isPreview = typeof window !== 'undefined' && !window.__NEXT_DATA__;
+  // Ersetze die Prüfung durch diese Zeile (Type-Safe Hack):
+  const isNext = typeof window !== 'undefined' && !!(window as any).__NEXT_DATA__;
+  const isSandbox = typeof window !== 'undefined' && window.location.hostname.includes('usercontent.goog');
 
-  if (isPreview) {
+  // Wenn wir nicht in einer hydrierten Next.js Umgebung sind (Preview) oder in der Sandbox,
+  // nutzen wir den manuellen Router.
+  if (!isNext || isSandbox) {
     return (
       <a 
         href={href} 
         className={className} 
         onClick={(e) => {
           e.preventDefault();
-          window.history.pushState({}, '', href);
-          // Dispatch event to notify custom router in index.tsx
-          window.dispatchEvent(new PopStateEvent('popstate'));
+          navigate(href);
           
           if (props.onClick) {
             props.onClick(e);
@@ -43,11 +44,5 @@ const SafeLink: React.FC<SafeLinkProps> = ({ href, children, className, ...props
     </Link>
   );
 };
-
-declare global {
-  interface Window {
-    __NEXT_DATA__: any;
-  }
-}
 
 export default SafeLink;

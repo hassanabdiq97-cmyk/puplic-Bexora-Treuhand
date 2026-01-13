@@ -11,16 +11,28 @@ import CustomCursor from './components/CustomCursor';
 
 // Simple client-side router for preview
 const Router = () => {
-  const [path, setPath] = useState(window.location.pathname);
-  const [search, setSearch] = useState(window.location.search);
+  const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
 
   useEffect(() => {
     const handlePopState = () => {
       setPath(window.location.pathname);
-      setSearch(window.location.search);
     };
+    
+    // Handler for robust navigation in sandboxed environments
+    const handleCustomNav = (e: any) => {
+      if (e.detail?.path) {
+        const targetPath = e.detail.path.split('?')[0];
+        setPath(targetPath);
+      }
+    };
+
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('bexora-navigation', handleCustomNav);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('bexora-navigation', handleCustomNav);
+    };
   }, []);
 
   // Simple routing logic based on URL
@@ -30,10 +42,11 @@ const Router = () => {
   if (path === '/impressum') return <ImpressumPage />;
   if (path === '/datenschutz') return <DatenschutzPage />;
   
-  // Handle query param for lang (legacy/fallback)
-  const params = new URLSearchParams(search);
+  // Handle fallback for legacy lang param or partial matches
+  const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const lang = params.get('lang');
-  if (lang === 'FR') return <FrenchHome />;
+  
+  if (lang === 'FR' || path.startsWith('/fr')) return <FrenchHome />;
 
   return <Home />;
 };
