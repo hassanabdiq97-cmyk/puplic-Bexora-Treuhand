@@ -30,7 +30,7 @@ export default function Hero({
         <ThreeBackground />
       </Suspense>
       
-      <div className="relative z-20 px-6 max-w-6xl mx-auto text-center w-full">
+      <div className="relative z-20 px-6 max-w-7xl mx-auto text-center w-full">
         {/* Badge */}
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-8 md:mb-12 border border-blue-600/20 shadow-[0_0_20px_rgba(37,99,235,0.1)]">
@@ -38,30 +38,30 @@ export default function Hero({
           </div>
         </div>
         
-        {/* Title - LCP Optimized. removed text-transparent to ensure instant paint */}
+        {/* Title - Optimized for Inter Font: Larger, tighter leading */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest mb-6 md:mb-8 text-slate-900 dark:text-white leading-[0.95] drop-shadow-sm break-words hyphens-auto will-change-transform"
+          className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tightest mb-6 md:mb-8 text-blue-600 dark:text-blue-500 leading-[0.9] drop-shadow-sm break-words hyphens-auto will-change-transform"
           style={{ contentVisibility: 'auto' }}
         >
           {t.title} <br/>
-          <span className="text-blue-600 dark:text-blue-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
             {t.accent}
           </span>
         </h1>
 
-        {/* Description - Animated (non-critical LCP) */}
-        <div className="animate-fade-up delay-100 max-w-2xl mx-auto mb-12 md:mb-16 px-2 md:px-6">
-          <p className="text-base sm:text-lg md:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed font-light">
+        {/* Description - Slightly larger base size to match title scale */}
+        <div className="animate-fade-up delay-100 max-w-3xl mx-auto mb-12 md:mb-16 px-2 md:px-6">
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed font-light">
             {t.desc}
           </p>
         </div>
 
-        {/* CTAs - Animated (non-critical LCP) */}
+        {/* CTAs */}
         <div className="animate-fade-up delay-200 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
           <MagneticButton variant="primary" className="!w-full sm:!w-auto !px-8 md:!px-10 !py-4 md:!py-5 !text-[11px] md:!text-[12px]" onClick={() => scrollToSection('contact')}>
             {t.ctaPrimary}
           </MagneticButton>
-          <MagneticButton variant="outline" className="!w-full sm:!w-auto !px-8 md:!px-10 !py-4 md:!py-5 !text-[11px] md:!text-[12px] !bg-transparent" onClick={() => scrollToSection('pricing')}>
+          <MagneticButton variant="outline" className="!w-full sm:!w-auto !px-8 md:!px-10 !py-4 md:!py-5 !text-[11px] md:!text-[12px] !bg-transparent" onClick={() => onOpenCalculator('business')}>
             {t.ctaSecondary}
           </MagneticButton>
         </div>

@@ -33,7 +33,7 @@ export default function ServicesSection({
            </div>
            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 text-slate-900 dark:text-white tracking-tighter">
              {t.title.split(t.accent)[0]}
-             <span className="text-blue-600">{t.accent}</span>.
+             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">{t.accent}</span>.
            </h2>
            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">{t.desc}</p>
         </div>

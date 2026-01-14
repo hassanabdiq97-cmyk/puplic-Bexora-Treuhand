@@ -82,7 +82,10 @@ export default function ClientHomeLogic({ lang = 'DE' }: ClientHomeLogicProps) {
                     {dict.nav.calculator}
                  </div>
                  <h2 className="text-5xl md:text-7xl font-black mb-8 text-slate-900 dark:text-white tracking-tighter">
-                   {dict.sections.pricing.title}
+                   {dict.sections.pricing.title} <br className="hidden md:block" />
+                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+                     {dict.sections.pricing.accent}
+                   </span>
                  </h2>
                  <p className="text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
                     {dict.sections.pricing.desc}

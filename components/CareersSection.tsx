@@ -57,7 +57,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
           </div>
           <h2 className="text-5xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter">
             {content.title} <br/>
-            <span className="text-blue-600">{content.accent}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">{content.accent}</span>
           </h2>
           <p className="text-xl text-slate-700 dark:text-slate-300 font-light leading-relaxed">
             {content.desc}

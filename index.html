@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Der Bexora-Vorteil | All-in-One Treuhand Lengnau</title>
-    <meta name="description" content="Bexora Treuhand in Lengnau: Maximale Transparenz durch digitale Prozesse. Buchhaltung, Steuern & Beratung für KMU im Seeland. Jetzt Sparpotenzial prüfen." />
+    <title>Bexora Treuhand | Ihr Partner für Finanzen & Steuern im Seeland</title>
+    <meta name="description" content="Bexora Treuhand in Lengnau: Persönliche Beratung, präzise Buchhaltung und Steueroptimierung für KMU und Privatpersonen. Ihr verlässlicher Partner im Seeland." />
     
-    <!-- Load Outfit Font for Preview -->
+    <!-- Load Inter Font for Preview -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -19,8 +19,8 @@
         theme: {
           extend: {
             fontFamily: {
-              // Use Outfit as primary font globally
-              sans: ['Outfit', 'var(--font-outfit)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              // Use Inter as primary font globally
+              sans: ['Inter', 'var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
             },
             colors: {
               primary: {
@@ -80,6 +80,8 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         letter-spacing: -0.011em;
+        font-feature-settings: "tnum"; /* Tabular nums fallback */
+        font-variant-numeric: tabular-nums;
       }
       
       ::-webkit-scrollbar { width: 6px; }

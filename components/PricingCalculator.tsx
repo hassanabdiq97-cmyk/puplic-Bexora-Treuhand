@@ -48,7 +48,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
     insuranceCheck: boolean
   }>({ 
     civilStatus: 'single', 
-    realEstate: 'none',
+    realEstate: 'none', 
     submission: 'digital', 
     delivery: 'digital',
     insuranceCheck: false
@@ -81,7 +81,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
     },
     private: {
       base: 0, 
-      status: { single: 130, married: 190 }, 
+      status: { single: 150, married: 220 }, 
       realEstate: { none: 0, one: 100, multiple: 250 },
       submission: { digital: 0, paper: 50 },
       delivery: { digital: 0, meeting: 120 },
@@ -208,7 +208,10 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
         </button>
 
         <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white mb-4 md:mb-6 tracking-tighter">{t.header}</h2>
+          {/* REVERTED: Standard Text Color Header */}
+          <h2 className="text-4xl md:text-7xl font-black mb-4 md:mb-6 tracking-tighter text-slate-900 dark:text-white">
+            {t.header}
+          </h2>
           <p className="text-slate-700 dark:text-slate-300 font-light text-lg md:text-2xl mb-8 md:mb-12">{t.subtitle}</p>
           
           <div className="flex flex-col items-center gap-4">
@@ -312,8 +315,8 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                     <div className="pt-8 md:pt-14 space-y-12 md:space-y-16">
                       <div role="radiogroup" aria-label={t.finance.p_q1}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                          <SelectionCard title={t.finance.p_options.single} price="130.-" desc={t.finance.p_options.singleDesc} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
-                          <SelectionCard title={t.finance.p_options.married} price="190.-" desc={t.finance.p_options.marriedDesc} selected={privateOpts.civilStatus === 'married'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'married'}))} colorClass="amber" icon={Heart} />
+                          <SelectionCard title={t.finance.p_options.single} price="150.-" desc={t.finance.p_options.singleDesc} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
+                          <SelectionCard title={t.finance.p_options.married} price="220.-" desc={t.finance.p_options.marriedDesc} selected={privateOpts.civilStatus === 'married'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'married'}))} colorClass="amber" icon={Heart} />
                         </div>
                       </div>
                       <div role="radiogroup" aria-label={t.finance.p_q2}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q2}</label>
@@ -488,6 +491,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                   ) : (
                     <>
                       <span className={`text-sm md:text-base font-black ${accentClass}`}>CHF</span>
+                      {/* REVERTED: Standard Text Color Price Display */}
                       <span className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tabular-nums tracking-tighter">{animatedPrice}</span>
                     </>
                   )}

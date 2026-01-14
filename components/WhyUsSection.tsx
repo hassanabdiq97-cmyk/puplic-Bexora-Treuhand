@@ -38,7 +38,7 @@ export default function WhyUsSection({ lang = 'DE' }: WhyUsSectionProps) {
               </div>
               <h2 className="animate-fade-up delay-100 text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-10 tracking-tighter leading-[0.95] text-slate-900 dark:text-white break-words">
                   {t.title} <br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{t.accent}</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">{t.accent}</span>
               </h2>
               <p className="animate-fade-up delay-200 text-lg md:text-3xl text-slate-700 dark:text-slate-400 font-light leading-relaxed max-w-3xl mx-auto border-t border-slate-200 dark:border-white/10 pt-8 md:pt-10">
                   {t.subtitle}

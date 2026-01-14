@@ -28,7 +28,7 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-black mb-8 md:mb-12 tracking-tighter text-slate-900 dark:text-white leading-[0.95] md:leading-[0.9]">
             {t.title} <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">{t.accent}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">{t.accent}</span>
           </h2>
           <p className="text-lg md:text-3xl text-slate-700 dark:text-slate-300 font-light leading-relaxed max-w-4xl border-l-4 border-blue-600 pl-6 md:pl-8">
             {t.intro}

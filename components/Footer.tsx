@@ -69,8 +69,8 @@ export default function Footer({ lang = 'DE' }: { lang?: 'DE' | 'FR' }) {
           </SafeLink>
         </div>
 
-        <div className="flex items-center gap-2 order-3 opacity-80 hover:opacity-100 transition-opacity">
-           <span className="text-[8px] font-black text-slate-500 dark:text-slate-500 uppercase tracking-widest">
+        <div className="flex items-center gap-1.5 order-3 opacity-80 hover:opacity-100 transition-opacity">
+           <span className="text-[10px] font-bold text-slate-500 dark:text-slate-500">
              {t.automatedBy}
            </span>
            <a 

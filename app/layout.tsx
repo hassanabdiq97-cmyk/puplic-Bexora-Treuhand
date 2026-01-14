@@ -3,16 +3,15 @@ import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import { Outfit } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import CustomCursor from '../components/CustomCursor';
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-outfit',
+  variable: '--font-inter',
   preload: true,
-  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
     template: '%s | Bexora Treuhand Lengnau',
     default: 'Bexora Treuhand | Ihr Partner für Finanzen & Steuern im Seeland',
   },
-  description: 'Pano & Partner AG (Bexora) in Lengnau: Professionelle Treuhanddienstleistungen für KMU und Privatpersonen. Buchhaltung, Steuern & Beratung für KMU im Seeland. Jetzt Sparpotenzial prüfen.',
-  keywords: ['Treuhand Lengnau', 'Steuerberatung Biel', 'Buchhaltung KMU', 'Lohnadministration', 'Bexora', 'Seeland', 'Fiduciaire'],
+  description: 'Pano & Partner AG (Bexora) in Lengnau: Persönliche Treuhanddienstleistungen für KMU und Privatpersonen. Buchhaltung, Steuern & Beratung für Ihre Sicherheit.',
+  keywords: ['Treuhand Lengnau', 'Steuerberatung Biel', 'Buchhaltung KMU', 'Lohnadministration', 'Bexora', 'Seeland', 'Fiduciaire', 'Unternehmensberatung'],
   alternates: {
     canonical: '/',
     languages: {
@@ -114,10 +113,8 @@ export default function RootLayout({
   const lang = isFrench ? 'fr' : 'de';
 
   return (
-    <html lang={lang} className={`scroll-smooth ${outfit.variable}`}>
+    <html lang={lang} className={`scroll-smooth ${inter.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -125,7 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`bg-slate-50 text-slate-900 dark:bg-dark-950 dark:text-slate-100 transition-colors duration-700 selection:bg-blue-600/30 font-sans`}>
+      <body className={`bg-slate-50 text-slate-900 dark:bg-dark-950 dark:text-slate-100 transition-colors duration-700 selection:bg-blue-600/30 font-sans tabular-nums`}>
         <CustomCursor />
         {children}
       </body>
