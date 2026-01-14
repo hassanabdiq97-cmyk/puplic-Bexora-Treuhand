@@ -28,14 +28,14 @@ export default function ServicesSection({
     <section id="services" className="py-20 md:py-48 relative z-20 bg-white dark:bg-dark-950 scroll-mt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 md:mb-32 max-w-4xl mx-auto">
-           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-slate-200 dark:border-white/10">
+           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-slate-200 dark:border-white/10">
               {dict.nav.services}
            </div>
            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 text-slate-900 dark:text-white tracking-tighter">
              {t.title.split(t.accent)[0]}
              <span className="text-blue-600">{t.accent}</span>.
            </h2>
-           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">{t.desc}</p>
+           <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">{t.desc}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">

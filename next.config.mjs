@@ -12,6 +12,9 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'gsap', 'three', '@react-three/fiber', '@react-three/drei'],
+  },
   async headers() {
     return [
       {

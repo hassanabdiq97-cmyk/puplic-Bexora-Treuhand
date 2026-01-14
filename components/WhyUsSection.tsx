@@ -33,14 +33,14 @@ export default function WhyUsSection({ lang = 'DE' }: WhyUsSectionProps) {
       <div className="px-6 md:px-8 max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-16 md:mb-24 max-w-5xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-6 md:mb-8 border border-slate-200 dark:border-white/10 animate-fade-up">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-6 md:mb-8 border border-slate-200 dark:border-white/10 animate-fade-up">
                 {t.badge}
               </div>
               <h2 className="animate-fade-up delay-100 text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-10 tracking-tighter leading-[0.95] text-slate-900 dark:text-white break-words">
                   {t.title} <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{t.accent}</span>
               </h2>
-              <p className="animate-fade-up delay-200 text-lg md:text-3xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl mx-auto border-t border-slate-200 dark:border-white/10 pt-8 md:pt-10">
+              <p className="animate-fade-up delay-200 text-lg md:text-3xl text-slate-700 dark:text-slate-400 font-light leading-relaxed max-w-3xl mx-auto border-t border-slate-200 dark:border-white/10 pt-8 md:pt-10">
                   {t.subtitle}
               </p>
           </div>
@@ -58,16 +58,16 @@ export default function WhyUsSection({ lang = 'DE' }: WhyUsSectionProps) {
                               <div className={`p-3 md:p-4 rounded-2xl border bg-slate-50 dark:bg-black/40 ${textColor} border-current border-opacity-20`}>
                                   <Icon size={28} md:size={32} strokeWidth={1.5} />
                               </div>
-                              <span className="text-[10px] font-black uppercase tracking-widest opacity-50 text-slate-500 dark:text-slate-500">0{idx + 1}</span>
+                              <span className="text-[10px] font-black uppercase tracking-widest opacity-50 text-slate-600 dark:text-slate-500">0{idx + 1}</span>
                           </div>
                           
                           <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 tracking-tight min-h-[2rem] md:min-h-[3rem] text-slate-900 dark:text-white">{block.title}</h3>
-                          <p className="text-slate-600 dark:text-slate-400 font-light leading-relaxed mb-8 md:mb-12 text-sm md:text-base">
+                          <p className="text-slate-700 dark:text-slate-400 font-light leading-relaxed mb-8 md:mb-12 text-sm md:text-base">
                               {block.text}
                           </p>
 
                           <div className="pt-6 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
-                              <span className="text-[9px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-500">Tech-Core</span>
+                              <span className="text-[9px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500">Tech-Core</span>
                               <span className={`text-[9px] font-black px-3 py-1.5 rounded-full border bg-white dark:bg-white/5 uppercase tracking-wide ${textColor.replace('text-', 'text-').replace('text-', 'border-').replace('text-', 'bg-').replace('500', '500/20').replace('400', '400/20')}`}>
                                   {block.usp}
                               </span>

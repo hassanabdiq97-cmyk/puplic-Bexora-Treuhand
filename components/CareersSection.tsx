@@ -52,14 +52,14 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10 py-10">
         {/* Left: Employer Branding */}
         <div className="lg:col-span-5 space-y-10 animate-up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] border border-slate-200 dark:border-white/10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] border border-slate-200 dark:border-white/10">
             {content.badge}
           </div>
           <h2 className="text-5xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter">
             {content.title} <br/>
             <span className="text-blue-600">{content.accent}</span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+          <p className="text-xl text-slate-700 dark:text-slate-300 font-light leading-relaxed">
             {content.desc}
           </p>
           
@@ -72,8 +72,8 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                     <Icon size={20} aria-hidden="true" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">{benefit.title}</h4>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{benefit.desc}</p>
+                    <h3 className="font-bold text-slate-900 dark:text-white text-sm">{benefit.title}</h3>
+                    <p className="text-xs text-slate-700 dark:text-slate-400">{benefit.desc}</p>
                   </div>
                 </div>
               );
@@ -109,7 +109,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                   <h3 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
                     {job.title}
                   </h3>
-                  <div className="flex items-center gap-6 text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
+                  <div className="flex items-center gap-6 text-slate-600 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
                     <span className="flex items-center gap-2"><Clock size={14} aria-hidden="true"/> {job.pensum}</span>
                     <span className="flex items-center gap-2"><MapPin size={14} aria-hidden="true"/> {job.location}</span>
                   </div>
@@ -128,7 +128,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
 
           <div className="p-10 rounded-[2.5rem] border-2 border-dashed border-slate-200 dark:border-white/5 flex flex-col items-center justify-center text-center space-y-4 hover:border-blue-600/20 transition-colors bg-slate-50/50 dark:bg-transparent">
             <h4 className="text-slate-900 dark:text-white font-black uppercase text-sm tracking-widest">{content.empty}</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs leading-relaxed">{content.emptyDesc}</p>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-xs leading-relaxed">{content.emptyDesc}</p>
             <button onClick={onApplyClick} className="group flex items-center gap-2 text-blue-600 font-black uppercase text-[10px] tracking-widest hover:text-blue-500 transition-colors focus:outline-none focus:underline">
               {content.apply} <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
@@ -150,7 +150,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                   ))}
                 </div>
                 <h3 id="job-title" className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">{selectedJob.title}</h3>
-                <div className="flex items-center gap-6 mt-4 text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest">
+                <div className="flex items-center gap-6 mt-4 text-slate-600 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest">
                   <span className="flex items-center gap-2"><Clock size={14} aria-hidden="true"/> {selectedJob.pensum}</span>
                   <span className="flex items-center gap-2"><MapPin size={14} aria-hidden="true"/> {selectedJob.location}</span>
                 </div>
@@ -166,7 +166,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                   <h4 className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">{content.tasksTitle}</h4>
                   <ul className="space-y-4">
                     {selectedJob.tasks.map((task: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                      <li key={i} className="flex gap-4 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                         <CheckCircle2 size={18} className="text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
                         {task}
                       </li>
@@ -178,7 +178,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                   <h4 className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">{content.reqTitle}</h4>
                   <ul className="space-y-4">
                     {selectedJob.requirements.map((req: string, i: number) => (
-                      <li key={i} className="flex gap-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                      <li key={i} className="flex gap-4 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" aria-hidden="true" />
                         {req}
                       </li>
@@ -191,7 +191,7 @@ const CareersSection: React.FC<CareersSectionProps> = ({ onApplyClick, lang = 'D
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="max-w-md text-left">
                     <h4 className="text-xl font-black text-slate-900 dark:text-white mb-2">{content.apply}</h4>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">Wir freuen uns darauf, Sie persönlich kennenzulernen. Senden Sie uns eine Nachricht oder rufen Sie uns direkt an.</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">Wir freuen uns darauf, Sie persönlich kennenzulernen. Senden Sie uns eine Nachricht oder rufen Sie uns direkt an.</p>
                   </div>
                   <MagneticButton variant="primary" className="!px-10 !py-4" onClick={handleApply}>
                     {content.apply} <ArrowRight size={18} aria-hidden="true" />

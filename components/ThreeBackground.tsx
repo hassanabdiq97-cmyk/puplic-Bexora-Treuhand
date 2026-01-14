@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useRef, useMemo, useState, useEffect } from 'react';
@@ -92,13 +93,13 @@ export default function ThreeBackground() {
   return (
     <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full bg-slate-50 dark:bg-dark-950">
       {/* 
-        frameloop="always" (default) -> Renders every frame (60fps).
-        frameloop="never" -> Stops the loop completely.
-        We switch to 'never' when the hero section is scrolled out of view to save GPU/Battery.
+        Optimization: Limit dpr to [1, 1.5] instead of [1, 2]. 
+        On 3x screens (iPhone Pro), rendering full resolution particles kills the Main Thread/GPU.
+        1.5 is visually sufficient for background effects.
       */}
       <Canvas 
         camera={{ position: [0, 6, 12], fov: 50 }} 
-        dpr={[1, 2]} 
+        dpr={[1, 1.5]} 
         style={{ pointerEvents: 'none' }}
         frameloop={isInView ? 'always' : 'never'}
       >

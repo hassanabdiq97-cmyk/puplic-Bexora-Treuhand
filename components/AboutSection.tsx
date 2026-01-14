@@ -23,14 +23,14 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
         
         {/* Intro */}
         <div className="mb-24 md:mb-32 max-w-5xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 md:mb-12 border border-slate-200 dark:border-white/10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 md:mb-12 border border-slate-200 dark:border-white/10">
             {dict.nav.about}
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-black mb-8 md:mb-12 tracking-tighter text-slate-900 dark:text-white leading-[0.95] md:leading-[0.9]">
             {t.title} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">{t.accent}</span>
           </h2>
-          <p className="text-lg md:text-3xl text-slate-600 dark:text-slate-300 font-light leading-relaxed max-w-4xl border-l-4 border-blue-600 pl-6 md:pl-8">
+          <p className="text-lg md:text-3xl text-slate-700 dark:text-slate-300 font-light leading-relaxed max-w-4xl border-l-4 border-blue-600 pl-6 md:pl-8">
             {t.intro}
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
               <div className="relative h-full p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 flex flex-col justify-center">
                  <Lightbulb size={48} md:size={64} className="text-blue-600 mb-6 md:mb-8" strokeWidth={1} />
                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">{t.vision}</h3>
-                 <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
+                 <p className="text-slate-700 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
                    {t.visionDesc}
                  </p>
               </div>
@@ -56,7 +56,7 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
                    </div>
                    <div>
                       <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-1 md:mb-2">{val.title}</h4>
-                      <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-light">{val.desc}</p>
+                      <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 font-light">{val.desc}</p>
                    </div>
                 </div>
               ))}

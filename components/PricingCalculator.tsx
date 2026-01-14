@@ -184,8 +184,8 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
         </div>
         <div className="mt-auto">
           {Icon && <span className={`block text-[10px] font-black uppercase tracking-widest mb-1 ${selected ? c.text : (special && !selected ? 'text-emerald-500' : 'text-slate-500 dark:text-slate-400')}`}>{price}</span>}
-          <h4 className="text-base font-bold text-slate-900 dark:text-white leading-tight mb-2">{title}</h4>
-          {desc && <p className="text-xs text-slate-500 dark:text-slate-300 font-light leading-relaxed mb-1">{desc}</p>}
+          <h3 className="text-base font-bold text-slate-900 dark:text-white leading-tight mb-2">{title}</h3>
+          {desc && <p className="text-xs text-slate-600 dark:text-slate-300 font-light leading-relaxed mb-1">{desc}</p>}
           {partner && <div className="mt-3 flex"><span className="text-[7px] font-black uppercase tracking-[0.2em] px-2 py-1 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 rounded-lg">Powered by {partner}</span></div>}
         </div>
         {selected && children && <div className="mt-4 pt-4 border-t border-slate-200/50 dark:border-white/10" onClick={e => e.stopPropagation()}>{children}</div>}
@@ -209,16 +209,16 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
 
         <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white mb-4 md:mb-6 tracking-tighter">{t.header}</h2>
-          <p className="text-slate-600 dark:text-slate-300 font-light text-lg md:text-2xl mb-8 md:mb-12">{t.subtitle}</p>
+          <p className="text-slate-700 dark:text-slate-300 font-light text-lg md:text-2xl mb-8 md:mb-12">{t.subtitle}</p>
           
           <div className="flex flex-col items-center gap-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t.typeSelection}</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">{t.typeSelection}</span>
             <div className="flex bg-slate-100 dark:bg-white/5 p-1 rounded-2xl border border-slate-200 dark:border-white/10 w-fit" role="radiogroup" aria-label="Calculator Type">
               <button 
                 role="radio"
                 aria-checked={calcType === 'business'}
                 onClick={() => setCalcType('business')} 
-                className={`px-4 md:px-6 py-3 min-h-[44px] rounded-xl text-xs font-black uppercase tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${calcType === 'business' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-500 dark:text-slate-400'}`}
+                className={`px-4 md:px-6 py-3 min-h-[44px] rounded-xl text-xs font-black uppercase tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${calcType === 'business' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-600 dark:text-slate-400'}`}
               >
                 {t.types.business}
               </button>
@@ -226,7 +226,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                 role="radio"
                 aria-checked={calcType === 'private'}
                 onClick={() => setCalcType('private')} 
-                className={`px-4 md:px-6 py-3 min-h-[44px] rounded-xl text-xs font-black uppercase tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-amber-500 ${calcType === 'private' ? 'bg-amber-500 text-white shadow-lg' : 'text-slate-500 dark:text-slate-400'}`}
+                className={`px-4 md:px-6 py-3 min-h-[44px] rounded-xl text-xs font-black uppercase tracking-widest transition-all focus:outline-none focus:ring-2 focus:ring-amber-500 ${calcType === 'private' ? 'bg-amber-500 text-white shadow-lg' : 'text-slate-600 dark:text-slate-400'}`}
               >
                 {t.types.private}
               </button>
@@ -239,10 +239,10 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
             {/* Progress Bar */}
             <div className="bg-white/60 dark:bg-white/[0.03] rounded-[2rem] p-6 md:p-8 border border-slate-200 dark:border-white/10 shadow-sm">
               <div className="flex justify-between items-end mb-4">
-                <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">{t.progress}</span>
+                <span className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400">{t.progress}</span>
                 <div className="flex items-baseline gap-1">
                   <span className={`text-2xl font-black ${accentClass}`}>{activeCount}</span>
-                  <span className="text-sm font-bold text-slate-400 dark:text-slate-500">/ {calcType === 'business' ? '3' : '1'} {t.activeBlocks}</span>
+                  <span className="text-sm font-bold text-slate-500 dark:text-slate-500">/ {calcType === 'business' ? '3' : '1'} {t.activeBlocks}</span>
                 </div>
               </div>
               <div className="w-full h-2 bg-slate-100 dark:bg-white/10 rounded-full overflow-hidden">
@@ -267,7 +267,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                   </div>
                   <div className="pr-4">
                     <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{calcType === 'business' ? t.finance.titleBusiness : t.finance.titlePrivate}</h3>
-                    <p className="text-xs md:text-base text-slate-600 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{calcType === 'business' ? t.finance.descBusiness : t.finance.descPrivate}</p>
+                    <p className="text-xs md:text-base text-slate-700 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{calcType === 'business' ? t.finance.descBusiness : t.finance.descPrivate}</p>
                   </div>
                 </div>
                 <div className="shrink-0">
@@ -278,7 +278,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                 <div className="p-4 md:p-14 pt-0 border-t border-slate-200/50 dark:border-white/10 space-y-12 md:space-y-16 animate-in fade-in duration-500">
                   {calcType === 'business' ? (
                     <>
-                      <div className="pt-8 md:pt-14" role="radiogroup" aria-label={t.finance.q1}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q1}</label>
+                      <div className="pt-8 md:pt-14" role="radiogroup" aria-label={t.finance.q1}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.options.single} price="80.-/Mo" desc={t.finance.options.singleDesc} selected={financeOpts.legalForm === 'single'} onClick={() => setFinanceOpts(p => ({...p, legalForm: 'single'}))} colorClass="blue" />
                           <SelectionCard title={t.finance.options.gmbh} price="150.-/Mo" desc={t.finance.options.gmbhDesc} selected={financeOpts.legalForm === 'gmbh'} onClick={() => setFinanceOpts(p => ({...p, legalForm: 'gmbh'}))} colorClass="blue" badge="Mandats-Tipp" />
@@ -286,21 +286,21 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                         </div>
                       </div>
                       {!isAssociation && (
-                        <><div role="radiogroup" aria-label={t.finance.q2}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q2}</label>
+                        <><div role="radiogroup" aria-label={t.finance.q2}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q2}</label>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                             <SelectionCard title={t.finance.options.packageS} price={`+ ${PRICES.business.volume.s}.-/Mo`} desc="Bis 300 Belege/Jahr" selected={financeOpts.volume === 's'} onClick={() => setFinanceOpts(p => ({...p, volume: 's'}))} colorClass="blue" />
                             <SelectionCard title={t.finance.options.packageM} price={`+ ${PRICES.business.volume.m}.-/Mo`} desc="Bis 1'200 Belege/Jahr" selected={financeOpts.volume === 'm'} onClick={() => setFinanceOpts(p => ({...p, volume: 'm'}))} colorClass="blue" badge="Beliebt" />
                             <SelectionCard title={t.finance.options.packageL} price={`+ ${PRICES.business.volume.l}.-/Mo`} desc="Bis 3'600 Belege/Jahr" selected={financeOpts.volume === 'l'} onClick={() => setFinanceOpts(p => ({...p, volume: 'l'}))} colorClass="blue" />
                           </div>
                         </div>
-                        <div role="radiogroup" aria-label={t.finance.q3}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q3}</label>
+                        <div role="radiogroup" aria-label={t.finance.q3}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q3}</label>
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                             <SelectionCard title={t.finance.options.vatNone} price="+ 0.-" desc="Keine MWST-Pflicht." selected={financeOpts.vat === 'none'} onClick={() => setFinanceOpts(p => ({...p, vat: 'none'}))} colorClass="blue" />
                             <SelectionCard title={t.finance.options.vatSaldo} price="+ 80.-" desc="Pauschalabrechnung." selected={financeOpts.vat === 'saldo'} onClick={() => setFinanceOpts(p => ({...p, vat: 'saldo'}))} colorClass="blue" />
                             <SelectionCard title={t.finance.options.vatEff} price="+ 160.-" desc="Mit Vorsteuerabzug." selected={financeOpts.vat === 'effective'} onClick={() => setFinanceOpts(p => ({...p, vat: 'effective'}))} colorClass="blue" />
                           </div>
                         </div>
-                        <div role="radiogroup" aria-label={t.finance.q4}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q4}</label>
+                        <div role="radiogroup" aria-label={t.finance.q4}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.q4}</label>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             <SelectionCard title={t.finance.options.year} price="+ 0.-" desc={t.finance.options.yearDesc} selected={financeOpts.interval === 'year'} onClick={() => setFinanceOpts(p => ({...p, interval: 'year'}))} colorClass="blue" badge={lang === 'DE' ? "Beliebt" : "Populaire"} />
                             <SelectionCard title={t.finance.options.quarter} price={`+ ${PRICES.business.interval.quarter}.-`} desc={t.finance.options.quarterDesc} selected={financeOpts.interval === 'quarter'} onClick={() => setFinanceOpts(p => ({...p, interval: 'quarter'}))} colorClass="blue" />
@@ -310,32 +310,32 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                     </>
                   ) : (
                     <div className="pt-8 md:pt-14 space-y-12 md:space-y-16">
-                      <div role="radiogroup" aria-label={t.finance.p_q1}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q1}</label>
+                      <div role="radiogroup" aria-label={t.finance.p_q1}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q1}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.p_options.single} price="130.-" desc={t.finance.p_options.singleDesc} selected={privateOpts.civilStatus === 'single'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'single'}))} colorClass="amber" icon={User} badge={lang === 'DE' ? "Basis" : "Standard"} />
                           <SelectionCard title={t.finance.p_options.married} price="190.-" desc={t.finance.p_options.marriedDesc} selected={privateOpts.civilStatus === 'married'} onClick={() => setPrivateOpts(p => ({...p, civilStatus: 'married'}))} colorClass="amber" icon={Heart} />
                         </div>
                       </div>
-                      <div role="radiogroup" aria-label={t.finance.p_q2}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q2}</label>
+                      <div role="radiogroup" aria-label={t.finance.p_q2}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q2}</label>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.p_options.none} price="+ 0.-" desc={t.finance.p_options.noneDesc} selected={privateOpts.realEstate === 'none'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'none'}))} colorClass="amber" />
                           <SelectionCard title={t.finance.p_options.one} price="+ 100.-" desc={t.finance.p_options.oneDesc} selected={privateOpts.realEstate === 'one'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'one'}))} colorClass="amber" icon={Home} />
                           <SelectionCard title={t.finance.p_options.multi} price="+ 250.-" desc={t.finance.p_options.multiDesc} selected={privateOpts.realEstate === 'multiple'} onClick={() => setPrivateOpts(p => ({...p, realEstate: 'multiple'}))} colorClass="amber" icon={Building2} />
                         </div>
                       </div>
-                       <div role="radiogroup" aria-label={t.finance.p_q5}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q5}</label>
+                       <div role="radiogroup" aria-label={t.finance.p_q5}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q5}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.p_options.check} price="- 20.-" desc={t.finance.p_options.checkDesc} selected={privateOpts.insuranceCheck === true} onClick={() => setPrivateOpts(p => ({...p, insuranceCheck: true}))} colorClass="emerald" icon={ShieldCheck} badge={lang === 'DE' ? "Kombi-Rabatt" : "Rabais combiné"} special />
                           <SelectionCard title={t.finance.p_options.noCheck} price="+ 0.-" desc={t.finance.p_options.noCheckDesc} selected={privateOpts.insuranceCheck === false} onClick={() => setPrivateOpts(p => ({...p, insuranceCheck: false}))} colorClass="amber" />
                         </div>
                       </div>
-                      <div role="radiogroup" aria-label={t.finance.p_q3}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q3}</label>
+                      <div role="radiogroup" aria-label={t.finance.p_q3}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q3}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.p_options.digital} price="+ 0.-" desc={t.finance.p_options.digitalDesc} selected={privateOpts.submission === 'digital'} onClick={() => setPrivateOpts(p => ({...p, submission: 'digital'}))} colorClass="amber" icon={UploadCloud} />
                           <SelectionCard title={t.finance.p_options.paper} price="+ 50.-" desc={t.finance.p_options.paperDesc} selected={privateOpts.submission === 'paper'} onClick={() => setPrivateOpts(p => ({...p, submission: 'paper'}))} colorClass="amber" icon={Mail} />
                         </div>
                       </div>
-                      <div role="radiogroup" aria-label={t.finance.p_q4}><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q4}</label>
+                      <div role="radiogroup" aria-label={t.finance.p_q4}><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.finance.p_q4}</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                           <SelectionCard title={t.finance.p_options.deliveryDig} price="+ 0.-" desc={t.finance.p_options.deliveryDigDesc} selected={privateOpts.delivery === 'digital'} onClick={() => setPrivateOpts(p => ({...p, delivery: 'digital'}))} colorClass="amber" icon={FileCheck} />
                           <SelectionCard title={t.finance.p_options.deliveryMeet} price="+ 120.-" desc={t.finance.p_options.deliveryMeetDesc} selected={privateOpts.delivery === 'meeting'} onClick={() => setPrivateOpts(p => ({...p, delivery: 'meeting'}))} colorClass="amber" icon={Building2} />
@@ -365,7 +365,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                     </div>
                     <div className="pr-4">
                       <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{t.payroll.title}</h3>
-                      <p className="text-xs md:text-base text-slate-600 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{t.payroll.desc}</p>
+                      <p className="text-xs md:text-base text-slate-700 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{t.payroll.desc}</p>
                     </div>
                   </div>
                   <div className="shrink-0">
@@ -375,11 +375,11 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                 {activeBlocks.payroll && (
                   <div className="p-4 md:p-14 pt-0 border-t border-slate-200/50 dark:border-white/10 space-y-12 md:space-y-20 animate-in fade-in duration-500">
                     <div className="mt-8 md:mt-14 pt-8 md:pt-14 flex flex-col bg-slate-100/30 dark:bg-white/5 p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                        <div className="w-full flex justify-between items-end mb-8 md:mb-12"><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 tracking-widest">{t.payroll.q1}</label><div className="flex items-baseline gap-2"><span className="text-4xl font-black text-purple-500 tabular-nums">{payrollOpts.employees}</span><span className="text-xs font-bold text-slate-400 dark:text-slate-300">MA</span></div></div>
+                        <div className="w-full flex justify-between items-end mb-8 md:mb-12"><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 tracking-widest">{t.payroll.q1}</label><div className="flex items-baseline gap-2"><span className="text-4xl font-black text-purple-500 tabular-nums">{payrollOpts.employees}</span><span className="text-xs font-bold text-slate-500 dark:text-slate-300">MA</span></div></div>
                         <input type="range" min="1" max="50" value={payrollOpts.employees} onChange={e => setPayrollOpts(p => ({...p, employees: parseInt(e.target.value)}))} className="w-full h-4 md:h-3 bg-slate-200 dark:bg-slate-800 appearance-none accent-purple-500 rounded-full cursor-pointer focus:outline-none focus:ring-4 focus:ring-purple-500/30" aria-label={t.payroll.q1} />
                     </div>
                     <div role="radiogroup" aria-label={t.payroll.q2}>
-                      <label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-10 block tracking-widest">{t.payroll.q2}</label>
+                      <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-10 block tracking-widest">{t.payroll.q2}</label>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                         <SelectionCard title={t.payroll.base} price="35.- / MA" desc={t.payroll.baseDesc} selected={payrollOpts.level === 'base'} onClick={() => setPayrollOpts(p => ({...p, level: 'base'}))} colorClass="purple" />
                         <SelectionCard title={t.payroll.full} price="65.- / MA" desc={t.payroll.fullDesc} selected={payrollOpts.level === 'full'} onClick={() => setPayrollOpts(p => ({...p, level: 'full'}))} colorClass="purple" badge="Premium" />
@@ -408,7 +408,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                     </div>
                     <div className="pr-4">
                       <h3 className="text-lg md:text-2xl font-black text-slate-900 dark:text-white mb-1 md:mb-3">{t.it.title}</h3>
-                      <p className="text-xs md:text-base text-slate-600 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{t.it.desc}</p>
+                      <p className="text-xs md:text-base text-slate-700 dark:text-slate-300 font-light line-clamp-2 md:line-clamp-none">{t.it.desc}</p>
                     </div>
                   </div>
                   <div className="shrink-0">
@@ -417,13 +417,13 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
                 </div>
                 {activeBlocks.automation && (
                   <div className="p-4 md:p-14 pt-0 border-t border-slate-200/50 dark:border-white/10 space-y-8 animate-in fade-in duration-500">
-                    <div className="pt-8 md:pt-14"><label className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.it.q1}</label>
+                    <div className="pt-8 md:pt-14"><label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 mb-6 md:mb-8 block tracking-widest">{t.it.q1}</label>
                       <div className="flex flex-col gap-4 md:gap-6">
                         <SelectionCard title={t.it.labels.epost} price={`+ ${PRICES.business.epost}.-/Mo`} desc={t.it.labels.epostDesc} selected={automationOpts.epost} onClick={() => setAutomationOpts(p => ({...p, epost: !p.epost}))} colorClass="cyan" partner="NextLab" fullWidth />
                         <SelectionCard title={t.it.labels.support} price="130.-/PC" desc={t.it.labels.supportDesc} selected={automationOpts.managedIt} onClick={() => setAutomationOpts(p => ({...p, managedIt: !p.managedIt}))} colorClass="cyan" fullWidth>
                             <div className="pt-4 max-w-xl">
                                 <div className="flex justify-between items-center mb-4">
-                                  <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400 tracking-widest">{t.it.labels.devices}</span>
+                                  <span className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 tracking-widest">{t.it.labels.devices}</span>
                                   <div className="flex items-baseline gap-1.5">
                                     <span className="text-2xl font-black text-cyan-500">{automationOpts.itDevices}</span>
                                     <span className="text-[10px] font-black text-slate-400 dark:text-slate-300 uppercase tracking-widest">Einheiten</span>
@@ -479,7 +479,7 @@ const PricingCalculator: React.FC<PricingCalculatorProps> = ({ initialType, onCl
               <div className="h-px bg-slate-200 dark:bg-white/10 mb-8 md:mb-12" />
               <div className="mb-10 md:mb-14">
                 <div className="flex justify-between items-end mb-4">
-                  <p className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">{calcType === 'business' ? t.monthly : 'Preis total'}</p>
+                  <p className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400">{calcType === 'business' ? t.monthly : 'Preis total'}</p>
                   <p className="text-[10px] font-black uppercase text-blue-600 dark:text-blue-400 tracking-widest">{t.vatInfo}</p>
                 </div>
                 <div className="flex items-baseline gap-2">
