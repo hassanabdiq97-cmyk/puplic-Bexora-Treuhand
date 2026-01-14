@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import ClientHomeLogic from '../components/ClientHomeLogic';
 
 export const metadata: Metadata = {
-  title: 'Der Vorteil: Bexora Treuhand | Wettbewerbsvorteil durch Echtzeit-Daten',
-  description: 'Werden Sie verwaltet oder schon optimiert? Bexora verwandelt Ihre Buchhaltung in ein strategisches Führungsinstrument. 360° Vision-Pulse™ für maximale Liquidität.',
+  title: 'Bexora Treuhand | Kompetenz für Ihre Finanzen',
+  description: 'Verlässliche Treuhanddienstleistungen in Lengnau. Wir entlasten Sie bei Buchhaltung, Steuern und Personaladministration. Schweizer Qualitätsstandards.',
   alternates: {
     canonical: 'https://bexora.ch',
     languages: {

@@ -18,25 +18,45 @@ interface NavbarProps {
 export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Theme State
   const [isDark, setIsDark] = useState(true);
+  const [mounted, setMounted] = useState(false);
   
   // Use Safe Hooks
   const router = useSafeRouter();
   const pathname = useSafePathname();
 
+  // Handle Scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle Theme Initialization (Client-Only to prevent Hydration Mismatch)
   useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored) {
+      setIsDark(stored === 'dark');
+    } else {
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    setMounted(true);
+  }, []);
+
+  // Apply Theme Class
+  useEffect(() => {
+    if (!mounted) return;
+    
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
-  }, [isDark]);
+  }, [isDark, mounted]);
 
   const toggleLanguage = () => {
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
@@ -59,8 +79,6 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
       }
     } else {
       // Production Mode (Subdomain Logic)
-      // Preserves the path suffix (e.g. /impressum) while switching domain
-      // NOTE: middleware handles the internal rewrite on fr.bexora.ch
       if (lang === 'DE') {
         window.location.href = `https://fr.bexora.ch${currentPath === '/' ? '' : currentPath}`;
       } else {
@@ -84,8 +102,6 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
         // Navigate home then scroll
         const homePath = lang === 'FR' ? '/fr' : '/';
         router.push(homePath);
-        // Simple timeout to allow navigation to happen before scrolling
-        // In a real Next.js app, using hash links with Link component is better, but this handles the mixed SPA/Multi-page setup
         setTimeout(() => {
              const target = document.querySelector(id);
              if (target) target.scrollIntoView({ behavior: 'smooth' });
@@ -129,7 +145,7 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
               </MagneticButton>
               
               <div className="flex items-center gap-2 border-l border-slate-200 dark:border-white/10 pl-6">
-                 {/* Increased touch target size for desktop/tablet users too */}
+                 {/* Language Toggle */}
                  <button 
                   onClick={toggleLanguage} 
                   aria-label={dict.aria.toggleLang}
@@ -137,17 +153,22 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
                  >
                     {lang === 'DE' ? 'FR' : 'DE'}
                  </button>
-                 <button 
-                    onClick={() => setIsDark(!isDark)} 
-                    aria-label={dict.aria.toggleTheme}
-                    className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                 >
-                    {isDark ? <Sun size={18} /> : <Moon size={18} />}
-                 </button>
+                 
+                 {/* Theme Toggle (Client Only) */}
+                 {mounted && (
+                   <button 
+                      onClick={() => setIsDark(!isDark)} 
+                      aria-label={dict.aria.toggleTheme}
+                      className="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                   >
+                      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                   </button>
+                 )}
+                 {!mounted && <div className="w-11 h-11" />} {/* Placeholder to prevent layout shift */}
               </div>
             </div>
 
-            {/* Mobile Menu Button - Large Touch Target */}
+            {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
               aria-label={isMenuOpen ? dict.aria.closeMenu : dict.aria.openMenu}
@@ -159,6 +180,7 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
         </div>
       </nav>
 
+      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[105] bg-white dark:bg-dark-950 lg:hidden flex flex-col pt-32 px-6 pb-12 overflow-y-auto animate-in slide-in-from-top-10 duration-300">
           <div className="flex flex-col gap-2">
@@ -207,13 +229,15 @@ export default function Navbar({ lang = 'DE', onToggleLang }: NavbarProps) {
                      </button>
                   </div>
 
-                <button 
-                   onClick={() => setIsDark(!isDark)} 
-                   aria-label={dict.aria.toggleTheme}
-                   className="aspect-square h-full flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 transition-all"
-                >
-                   {isDark ? <Sun size={24} /> : <Moon size={24} />}
-                </button>
+                {mounted && (
+                  <button 
+                     onClick={() => setIsDark(!isDark)} 
+                     aria-label={dict.aria.toggleTheme}
+                     className="aspect-square h-full flex items-center justify-center rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 active:scale-95 transition-all"
+                  >
+                     {isDark ? <Sun size={24} /> : <Moon size={24} />}
+                  </button>
+                )}
              </div>
           </div>
         </div>

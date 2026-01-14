@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import ClientHomeLogic from '../../components/ClientHomeLogic';
 
 export const metadata: Metadata = {
-  title: 'L\'avantage: Fiduciaire Bexora | Optimisation Stratégique',
-  description: 'Êtes-vous géré ou déjà optimisé ? Bexora transforme votre comptabilité en un instrument de gestion stratégique. Bexora 360° Vision-Pulse™ pour une liquidité maximale.',
+  title: 'Fiduciaire Bexora | Compétence pour vos finances',
+  description: 'Services fiduciaires fiables à Lengnau. Nous vous soutenons dans la comptabilité, la fiscalité et l\'administration du personnel. Normes de qualité suisses.',
   alternates: {
     canonical: 'https://fr.bexora.ch',
     languages: {

@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll globally */
 }
 
 body {
@@ -16,6 +17,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.011em;
+  overflow-x: hidden; /* Double protection against overflow */
+  width: 100%;
 }
 
 @media (pointer: fine) {

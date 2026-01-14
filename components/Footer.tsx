@@ -31,7 +31,7 @@ export default function Footer({ lang = 'DE' }: { lang?: 'DE' | 'FR' }) {
   };
 
   return (
-    <footer className="py-16 bg-white dark:bg-dark-950 border-t border-slate-200 dark:border-white/5 relative z-30">
+    <footer className="py-16 bg-white dark:bg-dark-950 border-t border-slate-200 dark:border-white/5 relative z-30 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
         
         <div className="flex flex-col gap-2 order-2 md:order-1">
@@ -70,7 +70,7 @@ export default function Footer({ lang = 'DE' }: { lang?: 'DE' | 'FR' }) {
         </div>
 
         <div className="flex items-center gap-2 order-3 opacity-80 hover:opacity-100 transition-opacity">
-           <span className="text-[8px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+           <span className="text-[8px] font-black text-slate-500 dark:text-slate-500 uppercase tracking-widest">
              {t.automatedBy}
            </span>
            <a 

@@ -3,139 +3,139 @@ export const deDict = {
   common: {
     back: "ZURÜCK",
     close: "Schliessen",
-    apply: "Jetzt bewerben",
-    send: "KOSTENLOSE ANALYSE ANFORDERN",
-    calculate: "Sparpotenzial berechnen"
+    apply: "Bewerbung einreichen",
+    send: "ANFRAGE SENDEN",
+    calculate: "Honorar ermitteln"
   },
   aria: {
     openMenu: "Hauptmenü öffnen",
     closeMenu: "Hauptmenü schliessen",
-    toggleTheme: "Farbschema zwischen Hell und Dunkel wechseln",
-    toggleLang: "Sprache zu Französisch wechseln",
+    toggleTheme: "Farbschema wechseln",
+    toggleLang: "Sprache wechseln",
     submitContact: "Kontaktformular absenden",
-    scrollToTop: "Nach oben scrollen",
-    logoLink: "Zur Startseite von Bexora Treuhand Lengnau",
-    pricingCardPrivate: "Preismodell für Privatpersonen ansehen",
-    pricingCardBusiness: "Preismodell für Unternehmen ansehen",
+    scrollToTop: "Nach oben",
+    logoLink: "Startseite Bexora Treuhand",
+    pricingCardPrivate: "Konditionen Privatpersonen",
+    pricingCardBusiness: "Konditionen Unternehmen",
     inputName: "Ihr Vor- und Nachname",
     inputEmail: "Ihre E-Mail-Adresse",
-    inputMessage: "Ihre Nachricht an uns",
-    jobCard: "Details zur Stelle anzeigen:",
-    selectOption: "Option auswählen:",
-    toggleSection: "Bereich umschalten:"
+    inputMessage: "Ihre Nachricht",
+    jobCard: "Stellendetails:",
+    selectOption: "Auswahl:",
+    toggleSection: "Bereich:"
   },
   nav: {
-    services: "Expertise",
+    services: "Dienstleistungen",
     careers: "Karriere",
     contact: "Kontakt",
-    calculator: "PREISRECHNER",
+    calculator: "HONORARRECHNER",
     about: "Über uns",
-    whyUs: "Der Vorteil"
+    whyUs: "Mehrwert"
   },
   hero: {
     badge: "Bexora Treuhand — Lengnau / Seeland",
-    title: "Fokus auf Ihr Business.",
-    accent: "Wir skalieren Ihren Erfolg.",
-    desc: "Schluss mit Finanz-Blindflug. Wir verwandeln Ihre Buchhaltung von einer lästigen Pflicht in Ihr stärkstes strategisches Führungsinstrument.",
-    ctaPrimary: "Potenzial-Analyse starten",
-    ctaSecondary: "Preisrechner"
+    title: "Fokus auf Ihr Kerngeschäft.",
+    accent: "Wir sichern die Finanzen.",
+    desc: "Präzises Treuhandwesen für anspruchsvolle KMU und Privatpersonen. Wir verbinden fundierte Fachexpertise mit effizienten digitalen Prozessen für Ihre Planungssicherheit.",
+    ctaPrimary: "Erstgespräch vereinbaren",
+    ctaSecondary: "Honorar berechnen"
   },
   trust: {
-    title: "WIR SETZEN AUF MARKTFÜHRER"
+    title: "UNSERE TECHNOLOGIE-PARTNER"
   },
   sections: {
     services: {
-      title: "Keine Kompromisse.",
-      accent: "Performance",
-      desc: "Ihr Unternehmen verdient mehr als Standard-Lösungen. Wir liefern massgeschneiderte Exzellenz in vier Dimensionen.",
-      cta: "Details ansehen"
+      title: "Umfassende Kompetenz.",
+      accent: "Qualität",
+      desc: "Ihr Unternehmen benötigt eine solide finanzielle Basis. Wir bieten Ihnen massgeschneiderte Dienstleistungen nach Schweizer Qualitätsstandards.",
+      cta: "Leistungsübersicht"
     },
     pricing: {
-      title: "Radikale Transparenz.",
-      desc: "Schluss mit Blackbox-Honoraren. Ermitteln Sie Ihren verbindlichen Fixpreis in unter 60 Sekunden. Ohne Wartezeit.",
+      title: "Transparenz & Planungssicherheit.",
+      desc: "Klare Honorarstrukturen statt offener Posten. Ermitteln Sie Ihren Richtpreis für wiederkehrende Dienstleistungen direkt online.",
       private: {
         title: 'Privatperson',
         subtitle: 'Steuererklärung',
-        desc: 'Maximale Rückerstattung, minimaler Aufwand. Wir holen für Sie heraus, was Ihnen zusteht.',
-        priceLabel: 'Einmalig ab',
-        features: ['Steuerersparnis maximieren', 'Fristverlängerung inklusive', 'Persönliche Beratung'],
-        cta: 'Jetzt berechnen'
+        desc: 'Fachgerechte Erstellung Ihrer Steuererklärung unter Berücksichtigung aller Abzugsmöglichkeiten. Diskret und fristgerecht.',
+        priceLabel: 'Pauschal ab',
+        features: ['Optimierung der Steuerlast', 'Fristverlängerung & Korrespondenz', 'Persönliche Beratung'],
+        cta: 'Offerte berechnen'
       },
       business: {
         title: 'Unternehmen',
         subtitle: 'KMU & Startups',
-        desc: 'Das Betriebssystem für Ihre Finanzen. Automatisierung, die Ihnen den Rücken freihält.',
+        desc: 'Strukturierte Finanzprozesse für Ihren Betrieb. Von der Buchführung bis zum Jahresabschluss.',
         priceLabel: 'Monatlich ab',
-        features: ['Echtzeit-Buchhaltung', 'Rechtskonforme Lohnbuchhaltung', 'Digitale Prozesse'],
-        cta: 'Jetzt berechnen',
-        badge: 'Bestseller'
+        features: ['Nachführung der Buchhaltung', 'Rechtskonformes Lohnwesen', 'MWST-Abrechnungen'],
+        cta: 'Offerte berechnen',
+        badge: 'Empfehlung'
       }
     },
     careers: {
       badge: "Karriere bei Bexora",
-      title: "Bereit für den",
-      accent: "nächsten Level?",
-      desc: "Keine Lust auf verstaubte Aktenordner? Bexora ist der Tech-Hub für moderne Finanzprozesse. Wir suchen Visionäre, keine Verwalter.",
-      cta: "Offene Positionen",
+      title: "Fachkompetenz",
+      accent: "gefragt.",
+      desc: "Bexora steht für modernes Treuhandwesen. Wir suchen engagierte Persönlichkeiten, die Präzision schätzen und die digitale Entwicklung der Branche aktiv mitgestalten wollen.",
+      cta: "Offene Stellen",
       apply: "Jetzt bewerben",
-      tasksTitle: "Ihr Impact",
+      tasksTitle: "Ihr Aufgabenbereich",
       reqTitle: "Ihr Profil",
-      empty: "Talent-Pool",
-      emptyDesc: "Wir nehmen laufend Top-Talente in unseren Pool auf. Überzeugen Sie uns.",
+      empty: "Initiativbewerbung",
+      emptyDesc: "Wir sind stets an qualifizierten Fachkräften interessiert. Senden Sie uns Ihre Unterlagen.",
       benefits: [
-        { title: 'Tech-Stack', desc: 'Cloud-First & KI.' },
-        { title: 'New Work', desc: 'Maximale Flexibilität.' },
-        { title: 'Growth', desc: 'Mentoring-Programm.' }
+        { title: 'Infrastruktur', desc: 'Moderne Arbeitsplätze & Software.' },
+        { title: 'Flexibilität', desc: 'Zeitgemässe Arbeitsmodelle.' },
+        { title: 'Weiterbildung', desc: 'Förderung Ihrer Expertise.' }
       ]
     },
     about: {
-      title: "Präzision trifft",
-      accent: "Innovation.",
-      intro: "Bexora ist nicht das klassische Treuhandbüro. Wir sind Ihr CFO-as-a-Service. Wir eliminieren Ineffizienz und schaffen Raum für Wachstum.",
-      vision: "Unsere Mission",
-      visionDesc: "Das Treuhandwesen radikal vereinfachen. Weg von der Rückschau, hin zur strategischen Vorausschau.",
-      location: "Power-Hub",
-      locationDesc: "Zuhause in Lengnau, verwurzelt im Seeland, technologisch führend in der Schweiz.",
+      title: "Tradition trifft",
+      accent: "Effizienz.",
+      intro: "Bexora versteht sich als strategischer Partner für KMU. Wir entlasten Sie von administrativen Aufgaben durch strukturierte Prozesse und schaffen so Freiräume für Ihre unternehmerische Entwicklung.",
+      vision: "Unser Anspruch",
+      visionDesc: "Treuhanddienstleistungen auf höchstem Niveau. Durch den Einsatz moderner Schnittstellen garantieren wir eine zeitnahe und korrekte Verbuchung Ihrer Geschäftsfälle.",
+      location: "Standort",
+      locationDesc: "Verwurzelt in Lengnau, tätig im gesamten Seeland und darüber hinaus. Ihr lokaler Ansprechpartner mit überregionalem Horizont.",
       values: [
-        { title: "Radikale Transparenz", desc: "Kein Fachchinesisch. Glasklare KPIs." },
-        { title: "Automation-First", desc: "Wir automatisieren Routine, Sie gewinnen Zeit." },
-        { title: "Human Touch", desc: "Technik dient dem Menschen, nicht umgekehrt." }
+        { title: "Verbindlichkeit", desc: "Wir halten Termine und Zusagen strikt ein." },
+        { title: "Präzision", desc: "Exakte Arbeitsweise nach Schweizer Standards." },
+        { title: "Persönlichkeit", desc: "Ein fester Ansprechpartner für Ihre Mandate." }
       ]
     },
     whyUs: {
-      badge: "Der Bexora-Vorteil",
-      title: "Werden Sie verwaltet",
-      accent: "oder schon optimiert?",
-      subtitle: "Ein durchschnittlicher Treuhänder kostet Geld. Bexora verschafft Ihnen einen Wettbewerbsvorteil.",
+      badge: "Der Bexora-Standard",
+      title: "Verwaltung oder",
+      accent: "Wertschöpfung?",
+      subtitle: "Eine professionelle Treuhandstelle amortisiert sich durch Fehlervermeidung und Steueroptimierung. Wir schaffen die Basis für Ihre wirtschaftliche Stabilität.",
       blocks: [
         {
-          title: "Liquidität sichern",
-          text: "Veraltete Zahlen sind ein Risiko. Mit unserem Echtzeit-Audit erkennen Sie Engpässe, bevor sie entstehen.",
-          usp: "Bexora 360° Vision-Pulse™"
+          title: "Finanzielle Führung",
+          text: "Verlässliche Zahlen sind die Basis jeder Entscheidung. Mit unserer strategischen Jahresplanung und proaktiven Finanzkontrolle erkennen Sie Abweichungen frühzeitig.",
+          usp: "Strategisches Controlling"
         },
         {
-          title: "Volle Kontrolle",
-          text: "Buchhaltung, Steuern und HR in einem Dashboard. Wir eliminieren Schnittstellenverluste und geben Ihnen das Steuer zurück.",
-          usp: "FiscalLogic™ Protocol"
+          title: "Integrierte Gesamtlösung",
+          text: "Finanzbuchhaltung, Lohnwesen und Steuern aus einer Hand. Wir minimieren Schnittstellenrisiken und sorgen für konsistente Daten.",
+          usp: "Ganzheitlicher Ansatz"
         },
         {
-          title: "High-Speed Setup",
-          text: "Während andere noch Papier sortieren, ist Ihr Unternehmen bereits digitalisiert. Skalieren Sie ohne administrativen Ballast.",
-          usp: "Bexora Automation-Core"
+          title: "Strukturierte Implementierung",
+          text: "Wir begleiten die Digitalisierung Ihrer Belegverarbeitung. Effiziente Prozesse reduzieren Ihren administrativen Aufwand nachhaltig.",
+          usp: "Prozess-Optimierung"
         }
       ],
-      proof: ["100% Digital", "Echtzeit-Daten", "Proaktive Beratung"],
-      cta: "Genug gelesen. Lassen Sie uns Ihr Business beschleunigen."
+      proof: ["Rechtssicherheit", "Termintreue", "Fachkompetenz"],
+      cta: "Lassen Sie uns Ihre Situation analysieren."
     }
   },
   contact: {
-    title: "Starten Sie die Transformation.",
+    title: "Ihr Kontakt zu uns.",
     address: "Solothurnstrasse 44, 2543 Lengnau",
     placeholderName: "Ihr Name",
-    placeholderEmail: "Ihre geschäftliche E-Mail",
-    placeholderMessage: "Bei welcher Herausforderung dürfen wir Sie unterstützen?",
-    success: "Anfrage erhalten. Wir melden uns in Kürze.",
-    trust: "Ihre Daten werden SSL-verschlüsselt übertragen. 100% Diskretion."
+    placeholderEmail: "Ihre E-Mail-Adresse",
+    placeholderMessage: "Ihr Anliegen",
+    success: "Vielen Dank. Wir werden uns zeitnah bei Ihnen melden.",
+    trust: "Diskretion ist für uns selbstverständlich. Verschlüsselte Übertragung."
   },
   footer: {
     copyright: "© 2015 Pano & Partner AG",
@@ -144,168 +144,168 @@ export const deDict = {
   servicesList: [
     { 
       id: 1, 
-      title: 'Finanzen & Steuern', 
-      description: 'Sichern Sie Ihre Liquidität. Wir liefern nicht nur Zahlen, sondern strategische Entscheidungsgrundlagen.', 
+      title: 'Finanzbuchhaltung', 
+      description: 'Führung der Buchhaltung nach OR. Erstellung von Zwischen- und Jahresabschlüssen sowie MWST-Abrechnungen.', 
       color: 'blue',
-      details: ['QuantumSync Ledger', 'Liquiditäts-Cockpit', 'Steuer-Optimierung', 'Jahresabschluss']
+      details: ['Laufende Verbuchung', 'Jahresrechnung', 'Budgetierung', 'Liquiditätsplanung']
     },
     { 
       id: 2, 
-      title: 'Lohn & HR', 
-      description: 'Fehlerfreie Lohnläufe sind Hygienefaktor. Wir kümmern uns um die komplexe Rechtslage und entlasten Sie voll.', 
+      title: 'Lohnadministration', 
+      description: 'Korrekte Abwicklung des gesamten Lohnwesens inklusive Sozialversicherungen und Quellensteuer.', 
       color: 'purple',
-      details: ['Bexora People-Flow™', 'Sozialversicherungen', 'Arbeitsrecht', 'Quellensteuer']
+      details: ['Lohnabrechnungen', 'Sozialversicherungen', 'Lohnausweise', 'Arbeitsverträge']
     },
     { 
       id: 3, 
-      title: 'Digitalisierung', 
-      description: 'Papier war gestern. Wir implementieren den Bexora Automation-Core in Ihre Prozesse.', 
+      title: 'Unternehmensberatung', 
+      description: 'Begleitung bei Gründungen, Umstrukturierungen und Nachfolgeregelungen. Optimierung interner Abläufe.', 
       color: 'cyan',
-      details: ['Bexora Automation-Core', 'Tool-Evaluation', 'Schnittstellen', 'Schulung']
+      details: ['Gründungsberatung', 'Prozessoptimierung', 'Rechtsberatung', 'Nachfolgeplanung']
     },
     { 
       id: 4, 
-      title: 'Privat & Vorsorge', 
-      description: 'Vermögen schützen und vermehren. Strategische Steuerplanung für Privatpersonen mit Weitblick.', 
+      title: 'Steuern & Vorsorge', 
+      description: 'Steuerberatung für natürliche und juristische Personen. Langfristige Planung und Optimierung.', 
       color: 'amber',
-      details: ['Steuererklärung', 'Vorsorgeanalyse', 'Erbrecht', 'Nachfolge']
+      details: ['Steuererklärung', 'Steuerrulings', 'Vorsorgeanalyse', 'Erbrecht']
     }
   ],
   jobs: [
     {
       id: 1,
-      title: 'Mandatsleiter/in',
+      title: 'Mandatsleiter/in Treuhand',
       pensum: '80 - 100%',
       location: 'Lengnau / Hybrid',
-      tags: ['Leadership', 'Consulting'],
+      tags: ['Fachführung', 'Beratung'],
       tasks: [
-        'Fachliche Führung anspruchsvoller KMU-Mandate',
-        'Strategische Beratung auf C-Level Niveau',
-        'Proaktive Steuerplanung und Abschlussgestaltung',
-        'Treiber der digitalen Transformation bei Kunden'
+        'Selbstständige Betreuung eines Portfolios von KMU-Kunden',
+        'Erstellung von Jahresabschlüssen und Steuererklärungen',
+        'Betriebswirtschaftliche Beratung und Abschlussgestaltung',
+        'Begleitung von Revisionen und Steuerprüfungen'
       ],
       requirements: [
-        'Dipl. Treuhandexperte oder Fachausweis',
-        'Unternehmerisches Denken und Handeln',
-        'Leidenschaft für digitale Geschäftsmodelle',
-        'Kommunikationsstärke und Empathie'
+        'Fachausweis Treuhand oder in Ausbildung zum Experten',
+        'Mehrjährige Berufserfahrung im Treuhandwesen',
+        'Exakte, strukturierte und selbstständige Arbeitsweise',
+        'Versierter Umgang mit Abacus/Dr. Tax von Vorteil'
       ]
     },
     {
       id: 2,
-      title: 'Junior Consultant',
+      title: 'Sachbearbeiter/in Treuhand',
       pensum: '60 - 100%',
       location: 'Lengnau BE',
-      tags: ['Digital Native', 'Growth'],
+      tags: ['Buchhaltung', 'Steuern'],
       tasks: [
-        'Autonome Führung von Finanzbuchhaltungen',
-        'Erstellung von komplexen Steuererklärungen',
-        'Onboarding neuer Kunden auf unsere Digital-Plattformen',
-        'Direkter Kundenkontakt und Beratung'
+        'Führen von Finanz- und Lohnbuchhaltungen',
+        'Vorbereitung von MWST-Abrechnungen',
+        'Erstellen von Steuererklärungen für natürliche Personen',
+        'Allgemeine administrative Treuhandarbeiten'
       ],
       requirements: [
-        'Kaufmännische Grundbildung (Treuhandprofil bevorzugt)',
-        'Hohe IT-Affinität und Lernbereitschaft',
-        'Lust, alte Zöpfe abzuschneiden',
-        'Präzise und effiziente Arbeitsweise'
+        'Kaufmännische Grundbildung (Profil Treuhand/Finanzen)',
+        'Hohe Zahlenaffinität und Diskretion',
+        'Gute IT-Anwenderkenntnisse',
+        'Teamfähigkeit und Kundenorientierung'
       ]
     }
   ],
   calculator: {
-    header: 'Ihr Preis-Check',
-    subtitle: 'Transparent. Fair. Skalierbar.',
+    header: 'Honorar-Schätzung',
+    subtitle: 'Unverbindliche Richtwerte für Ihre Planung.',
     back: 'Zurück',
     progress: 'Fortschritt',
-    activeBlocks: 'Module',
-    summaryTitle: 'Ihr Paket',
-    monthly: 'Monatlicher Preis',
-    oneTime: 'Einmaliger Preis',
-    cta: 'Unverbindliche Offerte',
-    ctaIndiv: 'Individuelle Lösung anfragen',
-    trust: 'Datenübertragung SSL-verschlüsselt',
+    activeBlocks: 'Gewählte Bereiche',
+    summaryTitle: 'Zusammenstellung',
+    monthly: 'Monatliches Honorar',
+    oneTime: 'Einmaliges Honorar',
+    cta: 'Detaillierte Offerte anfordern',
+    ctaIndiv: 'Individuelle Beratung anfordern',
+    trust: 'Daten werden vertraulich behandelt',
     vatInfo: 'exkl. MWST',
-    indivCheck: 'Experten-Check nötig',
-    typeSelection: 'Ich bin...',
-    types: { private: 'Privatperson', business: 'Unternehmer' },
+    indivCheck: 'Individuelle Prüfung notwendig',
+    typeSelection: 'Rechtsform / Art',
+    types: { private: 'Privatperson', business: 'Unternehmen' },
     finance: { 
-      titleBusiness: 'Finanzen & Buchhaltung',
+      titleBusiness: 'Finanzbuchhaltung',
       titlePrivate: 'Steuern Privat',
-      descBusiness: 'Basis für Ihren Unternehmenserfolg.',
-      descPrivate: 'Wir optimieren Ihre Steuerlast.',
-      q1: 'Rechtsform?',
-      q2: 'Belegvolumen pro Jahr?',
-      q3: 'MWST-Status?',
-      q4: 'Reporting-Intervall?',
+      descBusiness: 'Grundlage für Ihren Jahresabschluss.',
+      descPrivate: 'Erstellung der Steuererklärung.',
+      q1: 'Rechtsform des Unternehmens?',
+      q2: 'Belegvolumen pro Jahr (ca.)?',
+      q3: 'Mehrwertsteuerpflicht?',
+      q4: 'Gewünschtes Reporting?',
       options: {
          year: 'Jährlich',
-         yearDesc: 'Standard.',
+         yearDesc: 'Jahresabschluss.',
          quarter: 'Quartalsweise',
-         quarterDesc: 'Für engere Führung.',
+         quarterDesc: 'Zwischenabschlüsse.',
          single: 'Einzelfirma',
-         singleDesc: 'Selbstständig.',
+         singleDesc: 'Selbstständig Erwerbend.',
          gmbh: 'GmbH / AG',
          gmbhDesc: 'Juristische Person.',
          assoc: 'Verein / Stiftung',
-         assocDesc: 'Non-Profit.',
-         packageS: 'Starter (bis 300)',
-         packageM: 'Growth (bis 1200)',
-         packageL: 'Scale (bis 3600)',
-         vatNone: 'Keine MWST',
-         vatSaldo: 'Saldo',
-         vatEff: 'Effektiv'
+         assocDesc: 'Gemeinnützig.',
+         packageS: 'Klein (bis 300)',
+         packageM: 'Mittel (bis 1200)',
+         packageL: 'Gross (bis 3600)',
+         vatNone: 'Keine Pflicht',
+         vatSaldo: 'Saldosteuersatz',
+         vatEff: 'Effektive Methode'
       },
       p_q1: 'Zivilstand',
-      p_q2: 'Immobilienbesitz',
+      p_q2: 'Liegenschaften',
       p_q3: 'Datenübermittlung',
       p_q4: 'Besprechung',
-      p_q5: 'Optimierungs-Check',
+      p_q5: 'Zusatzleistungen',
       p_options: {
         single: "Alleinstehend",
-        singleDesc: "Ledig / Geschieden",
+        singleDesc: "Ledig / Geschieden / Verwitwet",
         married: "Verheiratet",
         marriedDesc: "Gemeinsame Veranlagung",
         none: "Keine",
         noneDesc: "Mietverhältnis",
         one: "Eigenheim",
         oneDesc: "1 Objekt",
-        multi: "Portfolio",
+        multi: "Liegenschaften",
         multiDesc: "Mehrere Objekte",
-        check: "Spar-Check",
-        checkDesc: "Wir prüfen Ihre Versicherungspolicen.",
-        noCheck: "Nur Steuern",
-        noCheckDesc: "Standard-Bearbeitung.",
-        digital: "100% Digital",
-        digitalDesc: "Bexora Cloud",
+        check: "Vorsorge-Check",
+        checkDesc: "Prüfung Säule 3a/3b.",
+        noCheck: "Basis",
+        noCheckDesc: "Nur Steuererklärung.",
+        digital: "Digital",
+        digitalDesc: "Upload / E-Mail",
         paper: "Physisch",
-        paperDesc: "Postversand",
-        deliveryDig: "Digital",
-        deliveryDigDesc: "Per E-Mail / Cloud",
+        paperDesc: "Postweg / Ordner",
+        deliveryDig: "Per E-Mail",
+        deliveryDigDesc: "Elektronischer Versand",
         deliveryMeet: "Persönlich",
-        deliveryMeetDesc: "Strategiegespräch"
+        deliveryMeetDesc: "Schlussbesprechung"
       }
     },
     payroll: { 
-      title: 'Personal & Lohn', 
-      desc: 'Rechtssicherheit für Sie und Ihr Team.',
+      title: 'Lohnwesen', 
+      desc: 'Lohnabrechnungen und Sozialversicherungen.',
       q1: 'Anzahl Mitarbeitende?',
-      q2: 'Service-Tiefe?',
+      q2: 'Dienstleistungsumfang?',
       base: 'Lohn Basic',
-      baseDesc: 'Abrechnung & Lohnausweis.',
-      full: 'HR Premium',
-      fullDesc: 'Inkl. Verträge & Rechtsberatung.'
+      baseDesc: 'Monatliche Abrechnung.',
+      full: 'Lohn & HR',
+      fullDesc: 'Inkl. Vertragswesen & Meldungen.'
     },
     it: { 
       title: 'Digitalisierung', 
-      desc: 'Turbo für Ihre Prozesse.',
-      q1: 'Mises à niveau souhaitées :',
+      desc: 'Optimierung der administrativen Prozesse.',
+      q1: 'Gewünschte Zusatzleistungen:',
       labels: {
         devices: 'Managed Workplaces',
-        epost: 'ePost-Service',
-        epostDesc: 'Wir digitalisieren Ihre gesamte Eingangspost.',
-        support: 'IT-Flatrate',
-        supportDesc: 'Sorglos-Paket für Ihre IT.',
-        audit: 'Prozess-Audit',
-        auditDesc: 'Einmalige Analyse Ihrer Workflows.'
+        epost: 'Scanning-Service',
+        epostDesc: 'Digitalisierung Eingangspost.',
+        support: 'IT-Support',
+        supportDesc: 'Support für Finanz-IT.',
+        audit: 'Prozess-Analyse',
+        auditDesc: 'Prüfung der Abläufe.'
       }
     }
   }

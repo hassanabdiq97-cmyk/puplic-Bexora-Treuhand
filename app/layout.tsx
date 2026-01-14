@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://bexora.ch'),
   title: {
     template: '%s | Bexora Treuhand Lengnau',
-    default: 'Bexora Treuhand | Ihr digitaler Partner im Seeland',
+    default: 'Bexora Treuhand | Ihr Partner für Finanzen & Steuern im Seeland',
   },
-  description: 'Bexora AG in Lengnau: Moderne Treuhand für KMU & Privatpersonen. Buchhaltung, Steuern & Lohn - digital, transparent & persönlich in Biel, Grenchen & Bern.',
-  keywords: ['Treuhand Lengnau', 'Steuererklärung Biel', 'Buchhaltung Bern', 'Lohnbuchhaltung Outsourcing', 'Bexora', 'Seeland', 'Fiduciaire'],
+  description: 'Pano & Partner AG (Bexora) in Lengnau: Professionelle Treuhanddienstleistungen für KMU und Privatpersonen. Buchhaltung, Steuerberatung & Lohnadministration.',
+  keywords: ['Treuhand Lengnau', 'Steuerberatung Biel', 'Buchhaltung KMU', 'Lohnadministration', 'Bexora', 'Seeland', 'Fiduciaire'],
   alternates: {
     canonical: '/',
     languages: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       url: '/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: 'Bexora Treuhand - Digital & Persönlich',
+      alt: 'Bexora Treuhand - Kompetenz und Vertrauen',
     }],
   },
   robots: {
@@ -85,7 +85,7 @@ const jsonLd = {
     "closes": "17:00"
   },
   "priceRange": "$$",
-  "description": "Digitale Treuhanddienstleistungen, Steuerberatung und Unternehmensberatung. Spezialisiert auf KMU-Automatisierung und Steueroptimierung.",
+  "description": "Umfassende Treuhanddienstleistungen: Finanzbuchhaltung, Steuerberatung, Lohnwesen und Unternehmensberatung für KMU und Privatpersonen.",
   "sameAs": [
     "https://www.linkedin.com/company/bexora",
     "https://www.local.ch/de/d/lengnau-be/2543/treuhandgesellschaft/bexora"
@@ -97,8 +97,8 @@ const jsonLd = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Finanzbuchhaltung & Jahresabschluss" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Steuerberatung für Juristische Personen" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Steuererklärung Privatpersonen" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lohnbuchhaltung & HR-Services" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unternehmensgründung & Beratung" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lohnbuchhaltung & Sozialversicherungen" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unternehmensberatung" } }
     ]
   }
 };

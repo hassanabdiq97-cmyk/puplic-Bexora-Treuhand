@@ -19,9 +19,11 @@ export function middleware(request: NextRequest) {
   // 2. SUBDOMAIN ROUTING (Hybrid Architecture)
   // Logic: If host is fr.bexora.ch, we rewrite to the /fr folder content
   if (hostname === 'fr.bexora.ch') {
-    // Prevent infinite loop: Only rewrite if not already in /fr
+    // Only rewrite if we aren't already targeting a /fr path to prevent double nesting or loops
     if (!pathname.startsWith('/fr')) {
-      const url = new URL(`/fr${pathname}`, request.url);
+      // Construct the rewrite URL safely
+      const url = request.nextUrl.clone();
+      url.pathname = `/fr${pathname}`;
       const response = NextResponse.rewrite(url);
       
       // SEO: Add header to indicate this is the French version logic
