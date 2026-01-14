@@ -1,3 +1,4 @@
+
 import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
@@ -115,6 +116,8 @@ export default function RootLayout({
   return (
     <html lang={lang} className={`scroll-smooth ${outfit.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <Script
           id="schema-org"
           type="application/ld+json"
