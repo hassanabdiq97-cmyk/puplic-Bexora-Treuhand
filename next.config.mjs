@@ -2,7 +2,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   images: {
@@ -13,6 +12,7 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
   experimental: {
+    // Critical for TBT reduction with heavy icon/animation libraries
     optimizePackageImports: ['lucide-react', 'gsap', 'three', '@react-three/fiber', '@react-three/drei'],
   },
   async headers() {
