@@ -75,8 +75,8 @@ export default function ClientHomeLogic({ lang = 'DE' }: ClientHomeLogicProps) {
         
         <ServicesSection lang={lang} onOpenCalculator={openCalculator} />
         
-        <section id="pricing" className="py-32 md:py-48 bg-slate-50 dark:bg-dark-950/50 scroll-mt-24">
-           <div className="max-w-7xl mx-auto px-6">
+        <section id="pricing" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 bg-slate-50 dark:bg-dark-950/50 scroll-mt-24">
+           <div className="max-w-7xl mx-auto px-6 w-full">
               <div className="text-center mb-24 max-w-4xl mx-auto">
                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-slate-200 dark:border-white/10">
                     {dict.nav.calculator}
@@ -95,8 +95,8 @@ export default function ClientHomeLogic({ lang = 'DE' }: ClientHomeLogicProps) {
            </div>
         </section>
 
-        <section id="careers" className="py-32 md:py-48 bg-white dark:bg-dark-950 scroll-mt-24">
-           <div className="max-w-7xl mx-auto px-6">
+        <section id="careers" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 bg-white dark:bg-dark-950 scroll-mt-24">
+           <div className="max-w-7xl mx-auto px-6 w-full">
              <CareersSection onApplyClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} lang={lang} />
            </div>
         </section>

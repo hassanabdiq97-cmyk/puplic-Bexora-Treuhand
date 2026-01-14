@@ -18,8 +18,8 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
   const noiseBg = `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiAvPjwvc3ZnPg==")`;
 
   return (
-    <section id="about" className="py-20 md:py-48 px-6 bg-slate-50 dark:bg-dark-950 scroll-mt-20">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 bg-slate-50 dark:bg-dark-950 scroll-mt-24">
+      <div className="max-w-7xl mx-auto w-full">
         
         {/* Intro */}
         <div className="mb-24 md:mb-32 max-w-5xl">

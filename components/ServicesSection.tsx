@@ -25,8 +25,8 @@ export default function ServicesSection({
   };
 
   return (
-    <section id="services" className="py-20 md:py-48 relative z-20 bg-white dark:bg-dark-950 scroll-mt-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 relative z-20 bg-white dark:bg-dark-950 scroll-mt-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="text-center mb-16 md:mb-32 max-w-4xl mx-auto">
            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-slate-200 dark:border-white/10">
               {dict.nav.services}

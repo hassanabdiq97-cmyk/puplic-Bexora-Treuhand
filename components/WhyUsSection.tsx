@@ -25,12 +25,12 @@ export default function WhyUsSection({ lang = 'DE' }: WhyUsSectionProps) {
   const noiseBg = `url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiAvPjwvc3ZnPg==")`;
 
   return (
-    <section id="why-us" className="relative py-20 md:py-48 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden scroll-mt-20 transition-colors duration-500">
+    <section id="why-us" className="relative min-h-screen flex flex-col items-center justify-center py-20 md:py-32 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white overflow-hidden scroll-mt-24 transition-colors duration-500">
       <div 
         className="absolute inset-0 opacity-0 dark:opacity-10 pointer-events-none transition-opacity duration-500" 
         style={{ backgroundImage: noiseBg }}
       />
-      <div className="px-6 md:px-8 max-w-7xl mx-auto relative z-10">
+      <div className="px-6 md:px-8 max-w-7xl mx-auto relative z-10 w-full">
           {/* Header */}
           <div className="text-center mb-16 md:mb-24 max-w-5xl mx-auto">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-6 md:mb-8 border border-slate-200 dark:border-white/10 animate-fade-up">

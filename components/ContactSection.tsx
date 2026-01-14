@@ -45,8 +45,8 @@ export default function ContactSection({ lang = 'DE' }: { lang?: 'DE' | 'FR' }) 
   };
 
   return (
-    <section id="contact" className="py-20 md:py-48 px-6 max-w-7xl mx-auto relative z-20 scroll-mt-24">
-      <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col lg:flex-row transition-colors duration-500">
+    <section id="contact" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 px-6 max-w-7xl mx-auto relative z-20 scroll-mt-24">
+      <div className="w-full bg-white dark:bg-slate-900 rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-white/10 flex flex-col lg:flex-row transition-colors duration-500">
         
         {/* Left Side: Brand Color (Always Blue/White Text) */}
         <div className="lg:w-1/2 p-10 md:p-12 lg:p-20 bg-blue-600 text-white flex flex-col relative overflow-hidden">
