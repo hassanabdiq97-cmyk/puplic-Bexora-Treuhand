@@ -58,7 +58,7 @@ export default function ServicesSection({
                     service.color === 'amber' ? 'bg-amber-500 text-white' :
                     'bg-cyan-400 text-slate-950'
                   }`}>
-                    {Icon && <Icon size={28} md:size={32} aria-hidden="true" strokeWidth={1.5} />}
+                    {Icon && <Icon className="w-7 h-7 md:w-8 md:h-8" aria-hidden="true" strokeWidth={1.5} />}
                   </div>
                   <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4 md:mb-6 tracking-tight">{service.title}</h3>
                   <p className="text-slate-700 dark:text-slate-300 mb-8 md:mb-10 text-sm md:text-base leading-relaxed font-light">{service.description}</p>

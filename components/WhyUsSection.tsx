@@ -56,7 +56,7 @@ export default function WhyUsSection({ lang = 'DE' }: WhyUsSectionProps) {
                       <div key={idx} className={`group p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] bg-white dark:bg-transparent border border-slate-200 dark:border-white/10 shadow-xl dark:shadow-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 ${style}`}>
                           <div className="flex justify-between items-start mb-8 md:mb-12">
                               <div className={`p-3 md:p-4 rounded-2xl border bg-slate-50 dark:bg-black/40 ${textColor} border-current border-opacity-20`}>
-                                  <Icon size={28} md:size={32} strokeWidth={1.5} />
+                                  <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
                               </div>
                               <span className="text-[10px] font-black uppercase tracking-widest opacity-50 text-slate-600 dark:text-slate-500">0{idx + 1}</span>
                           </div>

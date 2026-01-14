@@ -40,7 +40,7 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
            <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-[2.5rem] md:rounded-[3rem] blur-3xl opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative h-full p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 flex flex-col justify-center">
-                 <Lightbulb size={48} md:size={64} className="text-blue-600 mb-6 md:mb-8" strokeWidth={1} />
+                 <Lightbulb className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mb-6 md:mb-8" strokeWidth={1} />
                  <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">{t.vision}</h3>
                  <p className="text-slate-700 dark:text-slate-400 text-base md:text-lg font-light leading-relaxed">
                    {t.visionDesc}
@@ -69,10 +69,10 @@ export default function AboutSection({ lang = 'DE' }: AboutSectionProps) {
             <div className="relative z-10 flex flex-col items-center gap-8 md:gap-12">
                <div className="flex gap-4 md:gap-8">
                   <div className="p-4 md:p-6 rounded-full bg-white/5 border border-white/10 text-emerald-400">
-                    <MapPin size={32} md:size={40} />
+                    <MapPin className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
                    <div className="p-4 md:p-6 rounded-full bg-white/5 border border-white/10 text-cyan-400">
-                    <Cpu size={32} md:size={40} />
+                    <Cpu className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
                </div>
                <div>
