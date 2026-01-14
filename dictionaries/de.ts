@@ -5,7 +5,7 @@ export const deDict = {
     close: "Schliessen",
     apply: "Bewerbung einreichen",
     send: "ANFRAGE SENDEN",
-    calculate: "Honorar ermitteln"
+    calculate: "Preis ermitteln"
   },
   aria: {
     openMenu: "Hauptmenü öffnen",
@@ -28,7 +28,7 @@ export const deDict = {
     services: "Dienstleistungen",
     careers: "Karriere",
     contact: "Kontakt",
-    calculator: "HONORARRECHNER",
+    calculator: "PREISRECHNER",
     about: "Über uns",
     whyUs: "Mehrwert"
   },
@@ -38,7 +38,7 @@ export const deDict = {
     accent: "Wir sichern die Finanzen.",
     desc: "Präzises Treuhandwesen für anspruchsvolle KMU und Privatpersonen. Wir verbinden fundierte Fachexpertise mit effizienten digitalen Prozessen für Ihre Planungssicherheit.",
     ctaPrimary: "Erstgespräch vereinbaren",
-    ctaSecondary: "Honorar berechnen"
+    ctaSecondary: "Preis berechnen"
   },
   trust: {
     title: "UNSERE TECHNOLOGIE-PARTNER"
@@ -52,7 +52,7 @@ export const deDict = {
     },
     pricing: {
       title: "Transparenz & Planungssicherheit.",
-      desc: "Klare Honorarstrukturen statt offener Posten. Ermitteln Sie Ihren Richtpreis für wiederkehrende Dienstleistungen direkt online.",
+      desc: "Klare Preisstrukturen statt offener Posten. Ermitteln Sie Ihren Richtpreis für wiederkehrende Dienstleistungen direkt online.",
       private: {
         title: 'Privatperson',
         subtitle: 'Steuererklärung',
@@ -212,14 +212,14 @@ export const deDict = {
     }
   ],
   calculator: {
-    header: 'Honorar-Schätzung',
+    header: 'Preisschätzung',
     subtitle: 'Unverbindliche Richtwerte für Ihre Planung.',
     back: 'Zurück',
     progress: 'Fortschritt',
     activeBlocks: 'Gewählte Bereiche',
     summaryTitle: 'Zusammenstellung',
-    monthly: 'Monatliches Honorar',
-    oneTime: 'Einmaliges Honorar',
+    monthly: 'Monatlicher Preis',
+    oneTime: 'Einmaliger Preis',
     cta: 'Detaillierte Offerte anfordern',
     ctaIndiv: 'Individuelle Beratung anfordern',
     trust: 'Daten werden vertraulich behandelt',

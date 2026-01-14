@@ -9,9 +9,19 @@ import FrenchImpressum from './app/fr/impressum/page';
 import FrenchDatenschutz from './app/fr/datenschutz/page';
 import CustomCursor from './components/CustomCursor';
 
+// Set global flag to identify the Preview environment
+if (typeof window !== 'undefined') {
+  (window as any).__IS_PREVIEW__ = true;
+}
+
 // Simple client-side router for preview
 const Router = () => {
   const [path, setPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
+
+  // Scroll to top whenever path changes (Fixes "Impressum not opening" feeling)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [path]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -35,18 +45,21 @@ const Router = () => {
     };
   }, []);
 
+  // Normalize path (remove trailing slash for consistency)
+  const normalizedPath = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+
   // Simple routing logic based on URL
-  if (path === '/fr') return <FrenchHome />;
-  if (path === '/fr/impressum') return <FrenchImpressum />;
-  if (path === '/fr/datenschutz') return <FrenchDatenschutz />;
-  if (path === '/impressum') return <ImpressumPage />;
-  if (path === '/datenschutz') return <DatenschutzPage />;
+  if (normalizedPath === '/fr') return <FrenchHome />;
+  if (normalizedPath === '/fr/impressum') return <FrenchImpressum />;
+  if (normalizedPath === '/fr/datenschutz') return <FrenchDatenschutz />;
+  if (normalizedPath === '/impressum') return <ImpressumPage />;
+  if (normalizedPath === '/datenschutz') return <DatenschutzPage />;
   
   // Handle fallback for legacy lang param or partial matches
   const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const lang = params.get('lang');
   
-  if (lang === 'FR' || path.startsWith('/fr')) return <FrenchHome />;
+  if (lang === 'FR' || normalizedPath.startsWith('/fr')) return <FrenchHome />;
 
   return <Home />;
 };

@@ -1,7 +1,6 @@
-
 'use client';
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -70,9 +69,39 @@ const ParticleWave = () => {
 };
 
 export default function ThreeBackground() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 } // Trigger as soon as even 1px is visible/hidden
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none w-full h-full bg-slate-50 dark:bg-dark-950">
-      <Canvas camera={{ position: [0, 6, 12], fov: 50 }} dpr={[1, 2]} style={{ pointerEvents: 'none' }}>
+    <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full bg-slate-50 dark:bg-dark-950">
+      {/* 
+        frameloop="always" (default) -> Renders every frame (60fps).
+        frameloop="never" -> Stops the loop completely.
+        We switch to 'never' when the hero section is scrolled out of view to save GPU/Battery.
+      */}
+      <Canvas 
+        camera={{ position: [0, 6, 12], fov: 50 }} 
+        dpr={[1, 2]} 
+        style={{ pointerEvents: 'none' }}
+        frameloop={isInView ? 'always' : 'never'}
+      >
         <ParticleWave />
       </Canvas>
       <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-slate-50 dark:from-dark-950 to-transparent pointer-events-none"></div>

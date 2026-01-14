@@ -1,10 +1,12 @@
 
+'use client';
+
 import React from 'react';
 import { ShieldCheck, Lock, Database, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
 import LegalNavigation from '../../../components/LegalNavigation';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Déclaration de confidentialité (nLPD) | Bexora',
   description: 'Informations sur le traitement des données conformément à la nouvelle loi fédérale sur la protection des données (nLPD).',
   alternates: {

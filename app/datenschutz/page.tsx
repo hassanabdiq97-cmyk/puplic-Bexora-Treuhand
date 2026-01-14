@@ -1,10 +1,12 @@
 
+'use client';
+
 import React, { Suspense } from 'react';
 import { ShieldCheck, Lock, Database, Globe } from 'lucide-react';
 import type { Metadata } from 'next';
 import LegalNavigation from '../../components/LegalNavigation';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Datenschutzerklärung (nDSG) | Bexora Treuhand',
   description: 'Informationen zum Umgang mit Daten gemäss neuem Schweizer Datenschutzgesetz (nDSG) bei Bexora.',
   alternates: {

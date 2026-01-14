@@ -1,10 +1,12 @@
 
+'use client';
+
 import React, { Suspense } from 'react';
 import { Building2, User, Hash } from 'lucide-react';
 import type { Metadata } from 'next';
 import LegalNavigation from '../../components/LegalNavigation';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Impressum & Rechtliches | Bexora Treuhand AG',
   description: 'Rechtliche Informationen, Handelsregistereintrag (CHE-215.111.954) und Kontaktangaben der Pano & Partner AG (Bexora).',
   alternates: {

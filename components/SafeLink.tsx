@@ -12,13 +12,18 @@ interface SafeLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const SafeLink: React.FC<SafeLinkProps> = ({ href, children, className, ...props }) => {
-  // Ersetze die Prüfung durch diese Zeile (Type-Safe Hack):
-  const isNext = typeof window !== 'undefined' && !!(window as any).__NEXT_DATA__;
-  const isSandbox = typeof window !== 'undefined' && window.location.hostname.includes('usercontent.goog');
+  // Check for the flag set by index.tsx (Preview environment)
+  const isPreview = typeof window !== 'undefined' && (window as any).__IS_PREVIEW__;
+  
+  // Also check for common sandbox domains as a fallback
+  const isSandbox = typeof window !== 'undefined' && (
+      window.location.hostname.includes('usercontent.goog') || 
+      window.location.hostname.includes('webcontainer.io')
+  );
 
-  // Wenn wir nicht in einer hydrierten Next.js Umgebung sind (Preview) oder in der Sandbox,
-  // nutzen wir den manuellen Router.
-  if (!isNext || isSandbox) {
+  // If we are in the Preview/Sandbox, we use manual <a> tags with our custom router.
+  // In Vercel/Production (where __IS_PREVIEW__ is undefined), we use standard Next.js <Link>.
+  if (isPreview || isSandbox) {
     return (
       <a 
         href={href} 

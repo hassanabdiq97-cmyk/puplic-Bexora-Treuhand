@@ -5,7 +5,7 @@
     "close": "Schliessen",
     "apply": "Jetzt bewerben",
     "send": "Anfrage senden",
-    "calculate": "Preis berechnen"
+    "calculate": "Preis ermitteln"
   },
   "aria": {
     "openMenu": "Menü öffnen",
@@ -27,7 +27,7 @@
     "accent": "Wir erledigen den Rest.",
     "desc": "Wir verbinden persönliche Expertise mit digitaler Effizienz. Erhalten Sie finanzielle Klarheit in Echtzeit und proaktive Beratung.",
     "ctaPrimary": "Erstgespräch sichern",
-    "ctaSecondary": "Preisrechner"
+    "ctaSecondary": "Preis berechnen"
   },
   "contact": {
     "title": "Kontakt aufnehmen.",

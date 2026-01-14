@@ -1,16 +1,15 @@
-
 import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import Script from 'next/script';
 import CustomCursor from '../components/CustomCursor';
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-outfit',
   preload: true,
   adjustFontFallback: true,
 });
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
     template: '%s | Bexora Treuhand Lengnau',
     default: 'Bexora Treuhand | Ihr Partner für Finanzen & Steuern im Seeland',
   },
-  description: 'Pano & Partner AG (Bexora) in Lengnau: Professionelle Treuhanddienstleistungen für KMU und Privatpersonen. Buchhaltung, Steuerberatung & Lohnadministration.',
+  description: 'Pano & Partner AG (Bexora) in Lengnau: Professionelle Treuhanddienstleistungen für KMU und Privatpersonen. Buchhaltung, Steuern & Beratung für KMU im Seeland. Jetzt Sparpotenzial prüfen.',
   keywords: ['Treuhand Lengnau', 'Steuerberatung Biel', 'Buchhaltung KMU', 'Lohnadministration', 'Bexora', 'Seeland', 'Fiduciaire'],
   alternates: {
     canonical: '/',
@@ -114,7 +113,7 @@ export default function RootLayout({
   const lang = isFrench ? 'fr' : 'de';
 
   return (
-    <html lang={lang} className={`scroll-smooth ${inter.variable}`}>
+    <html lang={lang} className={`scroll-smooth ${outfit.variable}`}>
       <head>
         <Script
           id="schema-org"

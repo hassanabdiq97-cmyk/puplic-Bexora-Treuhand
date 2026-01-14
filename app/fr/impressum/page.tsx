@@ -1,10 +1,12 @@
 
+'use client';
+
 import React from 'react';
 import { Building2, User, Hash } from 'lucide-react';
 import type { Metadata } from 'next';
 import LegalNavigation from '../../../components/LegalNavigation';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Mentions Légales | Bexora Fiduciaire SA',
   description: 'Informations juridiques, registre du commerce (CHE-215.111.954) et contact de Pano & Partner AG (Bexora).',
   alternates: {
