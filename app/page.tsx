@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import ClientHomeLogic from '../components/ClientHomeLogic';
 
 export const metadata: Metadata = {
-  title: 'Bexora Treuhand | Kompetenz für Ihre Finanzen',
-  description: 'Verlässliche Treuhanddienstleistungen in Lengnau. Wir entlasten Sie bei Buchhaltung, Steuern und Personaladministration. Schweizer Qualitätsstandards.',
+  title: 'Bexora Treuhand | Ihr Partner für Finanzen & Steuern',
+  description: 'Professionelle Treuhanddienstleistungen in Lengnau. Wir unterstützen KMU und Privatpersonen bei Buchhaltung, Steuern und Lohnadministration. Jetzt beraten lassen.',
   alternates: {
     canonical: 'https://bexora.ch',
     languages: {

@@ -5,20 +5,23 @@ import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Navbar from './Navbar';
 import Hero from './Hero';
-import TrustBar from './TrustBar';
-import ServicesSection from './ServicesSection';
-import PricingSection from './PricingSection';
-import CareersSection from './CareersSection';
-import ContactSection from './ContactSection';
 import Footer from './Footer';
-import WhyUsSection from './WhyUsSection';
-import AboutSection from './AboutSection';
 import { deDict } from '../dictionaries/de';
 import { frDict } from '../dictionaries/fr';
 import { Loader2 } from 'lucide-react';
 
-// Dynamic import for heavy calculator component
-// This removes it from the initial bundle (saving ~KB) and loads it only when needed
+// --- PERFORMANCE OPTIMIZATION: DYNAMIC IMPORTS ---
+// Load everything below the fold dynamically.
+// This splits the JS bundle, so the browser only downloads the Hero section initially.
+const TrustBar = dynamic(() => import('./TrustBar'), { ssr: true });
+const WhyUsSection = dynamic(() => import('./WhyUsSection'), { ssr: true });
+const AboutSection = dynamic(() => import('./AboutSection'), { ssr: true });
+const ServicesSection = dynamic(() => import('./ServicesSection'), { ssr: true });
+const PricingSection = dynamic(() => import('./PricingSection'), { ssr: true });
+const CareersSection = dynamic(() => import('./CareersSection'), { ssr: true });
+const ContactSection = dynamic(() => import('./ContactSection'), { ssr: true });
+
+// PricingCalculator is heavy and interactive-only, strictly client-side
 const PricingCalculator = dynamic(() => import('./PricingCalculator'), {
   ssr: false,
   loading: () => (
@@ -60,8 +63,10 @@ export default function ClientHomeLogic({ lang = 'DE' }: ClientHomeLogicProps) {
       <Navbar lang={lang} />
       
       <main>
+        {/* Hero is critical, loaded normally */}
         <Hero lang={lang} onOpenCalculator={openCalculator} />
         
+        {/* All subsequent sections are chunked */}
         <TrustBar lang={lang} />
         
         <WhyUsSection lang={lang} />

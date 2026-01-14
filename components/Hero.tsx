@@ -31,17 +31,20 @@ export default function Hero({
       </Suspense>
       
       <div className="relative z-20 px-6 max-w-6xl mx-auto text-center w-full">
-        {/* Badge - Animation removed for LCP */}
+        {/* Badge */}
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-8 md:mb-12 border border-blue-600/20 shadow-[0_0_20px_rgba(37,99,235,0.1)]">
             {t.badge}
           </div>
         </div>
         
-        {/* Title - Animation removed for LCP (Text is critical content) */}
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest mb-6 md:mb-8 text-slate-900 dark:text-white leading-[0.95] drop-shadow-sm break-words hyphens-auto">
+        {/* Title - LCP Optimized. removed text-transparent to ensure instant paint */}
+        <h1 
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tightest mb-6 md:mb-8 text-slate-900 dark:text-white leading-[0.95] drop-shadow-sm break-words hyphens-auto will-change-transform"
+          style={{ contentVisibility: 'auto' }}
+        >
           {t.title} <br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600">
+          <span className="text-blue-600 dark:text-blue-400">
             {t.accent}
           </span>
         </h1>
