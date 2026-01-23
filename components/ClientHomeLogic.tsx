@@ -77,17 +77,18 @@ export default function ClientHomeLogic({ lang = 'DE' }: ClientHomeLogicProps) {
         
         <section id="pricing" className="min-h-screen flex flex-col items-center justify-center py-20 md:py-32 bg-slate-50 dark:bg-dark-950/50 scroll-mt-24">
            <div className="max-w-7xl mx-auto px-6 w-full">
-              <div className="text-center mb-24 max-w-4xl mx-auto">
+              <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-slate-200 dark:border-white/10">
                     {dict.nav.calculator}
                  </div>
-                 <h2 className="text-5xl md:text-7xl font-black mb-8 text-slate-900 dark:text-white tracking-tighter">
+                 {/* Optimized Header for Mobile: reduced size, added break-words */}
+                 <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-8 text-slate-900 dark:text-white tracking-tighter break-words hyphens-auto leading-tight">
                    {dict.sections.pricing.title} <br className="hidden md:block" />
                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
                      {dict.sections.pricing.accent}
                    </span>
                  </h2>
-                 <p className="text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                 <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
                     {dict.sections.pricing.desc}
                  </p>
               </div>

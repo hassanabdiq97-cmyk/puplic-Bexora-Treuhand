@@ -19,9 +19,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
       {/* Private Card */}
-      <div className="group relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 shadow-xl hover:shadow-amber-500/5 flex flex-col h-full" role="article" aria-label={dict.aria.pricingCardPrivate}>
+      <div className="group relative p-6 md:p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-amber-500/30 shadow-xl hover:shadow-amber-500/5 flex flex-col h-full" role="article" aria-label={dict.aria.pricingCardPrivate}>
          <div className="flex items-center gap-6 mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 shadow-inner border border-amber-500/20">
+            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 shadow-inner border border-amber-500/20 shrink-0">
                 <User size={28} aria-hidden="true"/>
             </div>
             <div>
@@ -33,7 +33,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
          <div className="mb-8 py-6 border-y border-slate-100 dark:border-white/5">
             <p className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-300 mb-2 tracking-widest">{content.private.priceLabel}</p>
             <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 130.-</span>
+                <span className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 130.-</span>
             </div>
          </div>
          
@@ -44,7 +44,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
          <div className="space-y-4 mb-10 flex-grow">
             {content.private.features.map((feature, i) => (
                 <div key={i} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
-                    <Check size={16} className="text-amber-500" aria-hidden="true" /> {feature}
+                    <Check size={16} className="text-amber-500 shrink-0" aria-hidden="true" /> {feature}
                 </div>
             ))}
          </div>
@@ -61,10 +61,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
       </div>
 
       {/* Business Card */}
-      <div className="group relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-blue-600/30 shadow-xl hover:shadow-blue-600/5 flex flex-col h-full" role="article" aria-label={dict.aria.pricingCardBusiness}>
+      <div className="group relative p-6 md:p-10 rounded-[2.5rem] bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/10 transition-all duration-500 hover:-translate-y-2 hover:border-blue-600/30 shadow-xl hover:shadow-blue-600/5 flex flex-col h-full" role="article" aria-label={dict.aria.pricingCardBusiness}>
          
          <div className="flex items-center gap-6 mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 shadow-inner border border-blue-600/20">
+            <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 shadow-inner border border-blue-600/20 shrink-0">
                 <Building2 size={28} aria-hidden="true"/>
             </div>
             <div>
@@ -76,7 +76,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
          <div className="mb-8 py-6 border-y border-slate-100 dark:border-white/5">
             <p className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-300 mb-2 tracking-widest">{content.business.priceLabel}</p>
             <div className="flex items-baseline gap-1">
-                <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 129.-</span>
+                <span className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter">CHF 129.-</span>
             </div>
          </div>
          
@@ -87,7 +87,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ onOpenCalculator, lang 
          <div className="space-y-4 mb-10 flex-grow">
             {content.business.features.map((feature, i) => (
                 <div key={i} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
-                    <Check size={16} className="text-blue-600" aria-hidden="true" /> {feature}
+                    <Check size={16} className="text-blue-600 shrink-0" aria-hidden="true" /> {feature}
                 </div>
             ))}
          </div>
